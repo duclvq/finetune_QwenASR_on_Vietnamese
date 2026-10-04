@@ -1,0 +1,1335 @@
+{
+ "summary": {
+  "stream_seconds": 209.5,
+  "clips": 12,
+  "speech_started": 13,
+  "finals": 14,
+  "partials": 172,
+  "stream_wer": 11.62,
+  "final_latency_s": {
+   "p50": 1.15,
+   "p95": 1.43,
+   "max": 1.44
+  },
+  "first_partial_latency_s": {
+   "p50": 1.24,
+   "p95": 1.29
+  },
+  "clips_cut_by_vad": 2
+ },
+ "events": [
+  {
+   "type": "transcription_session.created",
+   "session": {
+    "input_sample_rate": 16000,
+    "language": "vi",
+    "turn_detection": {
+     "type": "silero_vad",
+     "threshold": 0.2,
+     "silence_duration_ms": 800
+    }
+   },
+   "_t": 0.08585792500525713
+  },
+  {
+   "type": "input_audio_buffer.speech_started",
+   "item_id": "item_42f9313a25fd",
+   "audio_start_ms": 1980,
+   "_t": 2.106009603012353
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_42f9313a25fd",
+   "text": "Chị làm bánh thì.",
+   "_t": 3.276339346077293
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_42f9313a25fd",
+   "text": "Chị làm bánh thì mang cho các chú vào đội.",
+   "_t": 4.389294248074293
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_42f9313a25fd",
+   "text": "Chị làm bánh thì mang cho các chú bộ đội đang làm đường bê tông ở.",
+   "_t": 5.548101950902492
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_42f9313a25fd",
+   "text": "Chị làm bánh thì mang cho các chú bộ đội đang làm đường bê tông ở thôn em ạ.",
+   "_t": 6.543569463305175
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_42f9313a25fd",
+   "text": "Chị làm bánh thì mang cho các chú bộ đội đang làm đường bê tông ở thôn em ạ. Đội phụ nữ thôn chị.",
+   "_t": 7.688998953904957
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_42f9313a25fd",
+   "text": "Chị làm bánh thì mang cho các chú bộ đội đang làm đường bê tông ở thôn á, đội phụ nữ thôn chị tổ chức làm bánh cho.",
+   "_t": 8.86851967126131
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_42f9313a25fd",
+   "text": "Chị làm bánh thì mang cho các chú bộ đội đang làm đường bê tông ở thôn, phụ nữ thôn chị tổ chức làm bánh cho các chú bộ đội.",
+   "_t": 9.885097085032612
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_42f9313a25fd",
+   "text": "Chị làm bánh thì mang cho các chú bộ đội đang làm đường bê tông ở thôn á. Đội phụ nữ thôn chị tổ chức làm bánh cho các chú bộ đội để.",
+   "_t": 11.01356607209891
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_42f9313a25fd",
+   "text": "Chị làm bánh thì mang cho các chú bộ đội đang làm đường bê tông ở thôn á. Đội phụ nữ thôn chị tổ chức làm bánh cho các chú bộ đội để các chú có sức khỏe.",
+   "_t": 12.143693021964282
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_42f9313a25fd",
+   "text": "Chị làm bánh thì mang cho các chú bộ đội đang làm đường bê tông ở thôn á. Đội phụ nữ thôn chị tổ chức làm bánh cho các chú bộ đội để các chú có sức khỏe để làm đường.",
+   "_t": 13.16301648505032
+  },
+  {
+   "type": "input_audio_buffer.speech_stopped",
+   "item_id": "item_42f9313a25fd",
+   "audio_end_ms": 12676,
+   "_t": 13.405398617964238
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.completed",
+   "item_id": "item_42f9313a25fd",
+   "transcript": "Chị làm bánh thì mang cho các chú bộ đội đang làm đường bê tông ở thôn á. Đội phụ nữ thôn chị tổ chức làm bánh cho các chú bộ đội để các chú có sức khỏe để làm đường.",
+   "audio_start_ms": 1780,
+   "audio_end_ms": 12676,
+   "_t": 13.81938142515719
+  },
+  {
+   "type": "input_audio_buffer.speech_started",
+   "item_id": "item_f5453f8320a6",
+   "audio_start_ms": 14396,
+   "_t": 14.506020078901201
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_f5453f8320a6",
+   "text": "Thì đến bây giờ là.",
+   "_t": 15.649799614213407
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_f5453f8320a6",
+   "text": "Thì đến bây giờ là tổ bảo vệ của chúng tôi đã làm.",
+   "_t": 16.802586765028536
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_f5453f8320a6",
+   "text": "Thì đến bây giờ là tổ bảo vệ của chúng tôi đã làm, coi như đã tương đối hoàn chỉnh.",
+   "_t": 17.862645477056503
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_f5453f8320a6",
+   "text": "Thì đến bây giờ là tổ bảo vệ của chúng tôi đã làm, coi như đã tương đối hoàn chỉnh. Nói chung là.",
+   "_t": 18.96797453192994
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_f5453f8320a6",
+   "text": "Thì đến bây giờ là tổ bảo vệ của chúng tôi đã làm, coi như đã tương đối hoàn chỉnh. Nói chung là cái tầng lớp nhân dân của các.",
+   "_t": 20.1212275181897
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_f5453f8320a6",
+   "text": "Thế đến bây giờ là tổ bảo vệ của chúng tôi đã làm, coi như đã tương đối hoàn chỉnh. Nói chung là cái tầng lớp nhân dân của các cử tri.",
+   "_t": 21.184339580126107
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_f5453f8320a6",
+   "text": "Thế đến bây giờ là tổ bảo vệ của chúng tôi đã làm, coi như đã tương đối hoàn chỉnh. Nói chung là cái tầng lớp nhân dân của các cử tri, của riêng và bốn cơ sở.",
+   "_t": 22.339957071002573
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_f5453f8320a6",
+   "text": "Thế đến bây giờ là tổ bầu cử của chúng tôi đã làm, coi như đã tương đối hoàn chỉnh. Nói chung là cái tầng lớp nhân dân của các cử tri, của riêng và bốn cơ sở của tổ của tôi thì.",
+   "_t": 23.46711210720241
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_f5453f8320a6",
+   "text": "Thế đến bây giờ là tổ bảo vệ của chúng tôi đã làm, coi như đã tương đối hoàn chỉnh. Nói chung là cái tầng lớp nhân dân của các cử tri, của riêng và bốn cơ sở của tổ của tôi thì rất là hào hởi, phấn khởi.",
+   "_t": 24.537112954072654
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_f5453f8320a6",
+   "text": "Thế đến bây giờ là tổ bảo vệ của chúng tôi đã làm, coi như đã tương đối hoàn chỉnh. Nói chung là cái tầng lớp nhân dân của các cử tri, của riêng và bốn cơ sở của tổ của tôi thì rất là hào hởi, phấn khởi. Mà chúng chỉ mong.",
+   "_t": 25.676588827278465
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_f5453f8320a6",
+   "text": "Thế đến bây giờ là tổ bảo vệ của chúng tôi đã làm, coi như đã tương đối hoàn chỉnh. Nói chung là cái tầng lớp nhân dân của các cử tri, của riêng và bốn cơ sở của tổ của tôi thì rất là hào hởi, phấn khởi. Mà chúng chỉ mong đến cái ngày hai mươi ba tháng mười hai.",
+   "_t": 26.83965604705736
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_f5453f8320a6",
+   "text": "Thế đến bây giờ là tổ bảo vệ của chúng tôi đã làm, coi như đã tương đối hoàn chỉnh. Nói chung là cái tầng lớp nhân dân của các cử tri, của riêng và bốn cơ sở của tổ của tôi thì rất là hào hởi, phấn khởi. Mà chúng chỉ mong đến ngày hai mươi ba là toàn.",
+   "_t": 27.82655550725758
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_f5453f8320a6",
+   "text": "Thế đến bây giờ là tổ bầu cử của chúng tôi đã làm, coi như đã tương đối hoàn chỉnh. Nói chung là cái tầng lớp nhân dân của các cử tri, của riêng và bốn cơ sở của tổ của tôi thì rất là hào hởi, phấn khởi. Mà chúng chỉ mong đến cái ngày hai mươi ba là toàn dân đi bỏ phiếu.",
+   "_t": 28.965592003893107
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_f5453f8320a6",
+   "text": "Thế đến bây giờ là tổ bầu cử của chúng tôi đã làm, coi như đã tương đối hoàn chỉnh. Nói chung là cái tầng lớp nhân dân của các cử tri, của riêng và bốn cơ sở của tổ của tôi thì rất là hào hởi, phấn khởi. Mà chúng chỉ mong đến cái ngày hai mươi ba là toàn dân đi bỏ phiếu để hoàn chỉnh coi như.",
+   "_t": 30.113700134214014
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_f5453f8320a6",
+   "text": "Thế đến bây giờ là tổ bầu cử của chúng tôi đã làm, coi như đã tương đối hoàn chỉnh. Nói chung là cái tầng lớp nhân dân của các cử tri, của riêng và bốn cơ sở của tổ của tôi thì rất là hào hởi, phấn khởi. Mà chúng chỉ mong đến cái ngày hai mươi ba là toàn dân đi bỏ phiếu để hoàn chỉnh coi như là tất cả.",
+   "_t": 31.117617023177445
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_f5453f8320a6",
+   "text": "Thế đến bây giờ là tổ bầu cử của chúng tôi đã làm, coi như đã tương đối hoàn chỉnh. Nói chung là cái tầng lớp nhân dân của các cử tri, của riêng và bốn cơ sở của tổ của tôi thì rất là hào hởi, phấn khởi. Mà chúng chỉ mong đến ngày hai mươi ba là toàn dân đi bỏ phiếu để hoàn chỉnh coi như là tất cả cái người ở nhà.",
+   "_t": 32.229386078193784
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_f5453f8320a6",
+   "text": "Thế đến bây giờ là tổ bầu cử của chúng tôi đã làm, coi như đã tương đối hoàn chỉnh. Nói chung là cái tầng lớp nhân dân của các cử tri, của riêng và bốn cơ sở của tổ của tôi thì rất là hào hởi, phấn khởi. Mà chúng chỉ mong đến cái ngày hai mươi ba là toàn dân đi bỏ phiếu để hoàn chỉnh coi như là tất cả cái người ở nhà là trực tiếp cầm lá.",
+   "_t": 33.38992843031883
+  },
+  {
+   "type": "input_audio_buffer.speech_stopped",
+   "item_id": "item_f5453f8320a6",
+   "audio_end_ms": 33668,
+   "_t": 34.3119782009162
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.completed",
+   "item_id": "item_f5453f8320a6",
+   "transcript": "Thế đến bây giờ là tổ bầu cử của chúng tôi đã làm, coi như đã tương đối hoàn chỉnh. Nói chung là cái tầng lớp nhân dân của các cử tri, của riêng và bốn cơ sở của tổ của tôi thì rất là hào hởi, phấn khởi. Mà chúng chỉ mong đến ngày hai mươi ba là toàn dân đi bỏ phiếu để hoàn chỉnh coi như là tất cả cái người ở nhà là trực tiếp cầm lá phiếu đi bỏ phiếu.",
+   "audio_start_ms": 14196,
+   "audio_end_ms": 33668,
+   "_t": 35.09037032304332
+  },
+  {
+   "type": "input_audio_buffer.speech_started",
+   "item_id": "item_d32d1eea8f2d",
+   "audio_start_ms": 35196,
+   "_t": 35.30705316923559
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_d32d1eea8f2d",
+   "text": "Chúng tôi kiểm tra.",
+   "_t": 36.44072356307879
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_d32d1eea8f2d",
+   "text": "Chúng tôi kiểm tra rất là sát.",
+   "_t": 37.55772493313998
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_d32d1eea8f2d",
+   "text": "Chúng tôi kiểm tra rất là sát sao.",
+   "_t": 38.57577647315338
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_d32d1eea8f2d",
+   "text": "Chúng tôi kiểm tra rất là sát sao, trước hết là số.",
+   "_t": 39.685654999222606
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_d32d1eea8f2d",
+   "text": "Chúng tôi kiểm tra rất là sát sao. Trước hết là số các bạn ở Hàn Quốc.",
+   "_t": 40.82130859605968
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_d32d1eea8f2d",
+   "text": "Chúng tôi kiểm tra rất là sát sao. Trước hết là số các bạn ở Hàn Quốc sang làm việc.",
+   "_t": 41.831049361266196
+  },
+  {
+   "type": "input_audio_buffer.speech_stopped",
+   "item_id": "item_d32d1eea8f2d",
+   "audio_end_ms": 42084,
+   "_t": 42.80798921221867
+  },
+  {
+   "type": "input_audio_buffer.speech_started",
+   "item_id": "item_a0c46c7681bc",
+   "audio_start_ms": 42940,
+   "_t": 43.01004981389269
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.completed",
+   "item_id": "item_d32d1eea8f2d",
+   "transcript": "Chúng tôi kiểm tra rất là sát sao. Trước hết là số các bạn ở Hàn Quốc sang làm việc.",
+   "audio_start_ms": 34996,
+   "audio_end_ms": 42084,
+   "_t": 43.06794605916366
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_a0c46c7681bc",
+   "text": "Có thể các bạn thấy là.",
+   "_t": 44.15516900923103
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_a0c46c7681bc",
+   "text": "Có thể các bạn thấy là ngay ở cổng.",
+   "_t": 45.29044920112938
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_a0c46c7681bc",
+   "text": "Có thể các bạn thấy là ngay ở cổng, ngay ở cổng rác.",
+   "_t": 46.44476274307817
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_a0c46c7681bc",
+   "text": "Có thể các bạn thấy là ngay ở cổng, ngay ở cổng rác.",
+   "_t": 47.466142951045185
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_a0c46c7681bc",
+   "text": "Có thể các bạn thấy là ngay ở cổng, ngay ở cổng rác. Khi các bạn vào thì",
+   "_t": 48.62015346623957
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_a0c46c7681bc",
+   "text": "Có thể các bạn thấy là ngay ở cổng, ngay ở cổng rác. Khi các bạn vào thì người.",
+   "_t": 49.73109792126343
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_a0c46c7681bc",
+   "text": "Có thể các bạn thấy là ngay ở cổng, ngay ở cổng rác. Khi các bạn vào thì người ta đã kiểm tra thân.",
+   "_t": 50.761150169186294
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_a0c46c7681bc",
+   "text": "Có thể các bạn thấy là ngay ở cổng, ngay ở cổng rác. Khi các bạn vào thì người ta đã kiểm tra thân nhiệt và.",
+   "_t": 51.86495047388598
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_a0c46c7681bc",
+   "text": "Có thể các bạn thấy là ngay ở cổng, ngay ở cổng rác. Khi các bạn vào thì người ta đã kiểm tra thân nhiệt và những người nào chưa.",
+   "_t": 52.99916423810646
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_a0c46c7681bc",
+   "text": "Có thể các bạn thấy là ngay ở cổng, ngay ở cổng rác. Khi các bạn vào thì người ta đã kiểm tra thân nhiệt và những người nào chưa có khẩu trang thì.",
+   "_t": 54.02756736893207
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_a0c46c7681bc",
+   "text": "Có thể các bạn thấy là ngay ở cổng, ngay ở cổng rác. Khi các bạn vào thì người ta đã kiểm tra thân nhiệt và những người nào chưa có khẩu trang thì chúng tôi phát khẩu trang.",
+   "_t": 55.17120922496542
+  },
+  {
+   "type": "input_audio_buffer.speech_stopped",
+   "item_id": "item_a0c46c7681bc",
+   "audio_end_ms": 54916,
+   "_t": 55.607145159039646
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.completed",
+   "item_id": "item_a0c46c7681bc",
+   "transcript": "Có thể các bạn thấy là ngay ở cổng, ngay ở cổng rác. Khi các bạn vào thì người ta đã kiểm tra thân nhiệt và những người nào chưa có khẩu trang thì chúng tôi phát khẩu trang.",
+   "audio_start_ms": 42740,
+   "audio_end_ms": 54916,
+   "_t": 56.04932029219344
+  },
+  {
+   "type": "input_audio_buffer.speech_started",
+   "item_id": "item_7c268b053e74",
+   "audio_start_ms": 56220,
+   "_t": 56.30795761104673
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_7c268b053e74",
+   "text": "Đem lại cảm giác rất là.",
+   "_t": 57.45321682607755
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_7c268b053e74",
+   "text": "Đem lại cảm giác rất là thích, vui vẻ.",
+   "_t": 58.485894097946584
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_7c268b053e74",
+   "text": "Đem lại cảm giác rất là thích, vui vẻ và thoải mái cho tất cả mọi người.",
+   "_t": 59.639260361902416
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_7c268b053e74",
+   "text": "Đem lại cảm giác rất là thích, vui vẻ và thoải mái cho tất cả mọi người ở đây.",
+   "_t": 60.73343882616609
+  },
+  {
+   "type": "input_audio_buffer.speech_stopped",
+   "item_id": "item_7c268b053e74",
+   "audio_end_ms": 60516,
+   "_t": 61.20695201912895
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.completed",
+   "item_id": "item_7c268b053e74",
+   "transcript": "Đem lại cảm giác rất là thích, vui vẻ và thoải mái cho tất cả mọi người ở đây.",
+   "audio_start_ms": 56020,
+   "audio_end_ms": 60516,
+   "_t": 61.43003844330087
+  },
+  {
+   "type": "input_audio_buffer.speech_started",
+   "item_id": "item_6e51dbd164dd",
+   "audio_start_ms": 61820,
+   "_t": 61.908118680119514
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_6e51dbd164dd",
+   "text": "Mấy năm trước thì là.",
+   "_t": 63.04183675395325
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_6e51dbd164dd",
+   "text": "Mấy năm trước thì là.",
+   "_t": 64.04768210230395
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_6e51dbd164dd",
+   "text": "Mấy năm trước thì bọn tôi cũng có.",
+   "_t": 65.16192831005901
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_6e51dbd164dd",
+   "text": "Mấy năm trước thì bọn tôi cũng có.",
+   "_t": 66.24835023190826
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_6e51dbd164dd",
+   "text": "Mấy năm trước thì là bọn tôi cũng có làm cái cầu.",
+   "_t": 67.27251043030992
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_6e51dbd164dd",
+   "text": "Mấy năm trước thì là bọn tôi cũng có làm cái cầu Bắc Sang đây.",
+   "_t": 68.38090048590675
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_6e51dbd164dd",
+   "text": "Mấy năm trước thì là bọn tôi cũng có làm cái cầu Bắc Sang Đi để làm ăn.",
+   "_t": 69.53710749512538
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_6e51dbd164dd",
+   "text": "Mấy năm trước thì là bọn tôi cũng có làm cái cầu Bắc Sang Đi để làm ăn.",
+   "_t": 70.54075965797529
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_6e51dbd164dd",
+   "text": "Mấy năm trước thì là bọn tôi cũng có làm cái cầu Bắc Sang Đi để làm ăn. Theo cái chủ trương thì. . .",
+   "_t": 71.6916731451638
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_6e51dbd164dd",
+   "text": "Mấy năm trước thì là bọn tôi cũng có làm cái cầu Bắc Sang Đi để làm ăn. Theo cái chủ trương thì của xã thì là.",
+   "_t": 72.83145951991901
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_6e51dbd164dd",
+   "text": "Mấy năm trước thì bọn tôi cũng có làm cái cầu Bắc Sang Đi để làm ăn. Theo cái chủ trương thì của xã thì là. . .",
+   "_t": 73.83728317497298
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_6e51dbd164dd",
+   "text": "Mấy năm trước thì là bọn tôi cũng có làm cái cầu Bắc Sang Đi để làm ăn. Theo cái chủ trương thì của xã thì là bây giờ là bọn tôi bắt qua kênh.",
+   "_t": 74.9847213011235
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_6e51dbd164dd",
+   "text": "Mấy năm trước thì là bọn tôi cũng có làm cái cầu Bắc sang đây để làm ăn. Theo cái chủ trương thì của xã thì là bây giờ là bọn tôi Bắc qua kênh thì nó cũng là có.",
+   "_t": 76.12185096228495
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_6e51dbd164dd",
+   "text": "Mấy năm trước thì bọn tôi cũng có làm cái cầu bắc sang đây để làm ăn. Theo cái chủ trương thì của xã thì bây giờ là bọn tôi bắc qua kênh thì nó cũng là có vi phạm.",
+   "_t": 77.13453081389889
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_6e51dbd164dd",
+   "text": "Mấy năm trước thì là bọn tôi cũng có làm cái cầu bắc sang đây để làm ăn. Theo cái chủ trương thì của xã thì là bây giờ là bọn tôi bắc qua kênh thì nó cũng là có vi phạm. Sau",
+   "_t": 78.25557256909087
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_6e51dbd164dd",
+   "text": "Mấy năm trước thì là bọn tôi cũng có làm cái cầu bắc sang đây để làm ăn. Theo cái chủ trương thì của xã thì là bây giờ là bọn tôi bắc qua kênh thì nó cũng là có vi phạm. Sau được chủ trương xã.",
+   "_t": 79.38241806719452
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_6e51dbd164dd",
+   "text": "Mấy năm trước thì là bọn tôi cũng có làm cái cầu bắc sang đây để làm ăn. Theo cái chủ trương thì của xã thì là bây giờ là bọn tôi bắc qua kênh thì nó cũng là có vi phạm. Sau được chủ trương xã là.",
+   "_t": 80.39529223088175
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_6e51dbd164dd",
+   "text": "Mấy năm trước thì là bọn tôi cũng có làm cái cầu bắc sang đây để làm ăn. Theo cái chủ trương thì của xã thì là bây giờ là bọn tôi bắc qua kênh thì nó cũng là có vi phạm. Sau được chủ trương xã là. . .",
+   "_t": 81.49343079701066
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_6e51dbd164dd",
+   "text": "Mấy năm trước thì là bọn tôi cũng có làm cái cầu Bắc sang đây để làm ăn. Theo cái chủ trương thì của xã thì là bây giờ là bọn tôi bắt qua kênh thì nó cũng là có vi phạm. Sau được chủ trương xã là làm cái đường.",
+   "_t": 82.63663747021928
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_6e51dbd164dd",
+   "text": "Mấy năm trước thì là bọn tôi cũng có làm cái cầu Bắc sang đây để làm ăn. Theo cái chủ trương thì của xã thì là bây giờ là bọn tôi bắt qua kênh thì nó cũng là có vi phạm. Sau được chủ trương xã là làm cái đường nông thôn mới.",
+   "_t": 83.57764994725585
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_6e51dbd164dd",
+   "text": "Mấy năm trước thì là bọn tôi cũng có làm cái cầu Bắc sang đây để làm ăn. Theo cái chủ trương thì của xã thì là bây giờ là bọn tôi bắt qua kênh thì nó cũng là có vi phạm. Sau được chủ trương xã là làm cái đường nông thôn mới.",
+   "_t": 84.7628512000665
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_6e51dbd164dd",
+   "text": "Mấy năm trước thì là bọn tôi cũng có làm cái cầu Bắc Sang Đi để làm ăn. Theo cái chủ trương thì của xã thì là bây giờ là bọn tôi bắt qua kênh thì nó cũng là có vi phạm. Sau được chủ trương xã là làm cái đường nông thôn mới.",
+   "_t": 85.83338234201074
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.completed",
+   "item_id": "item_6e51dbd164dd",
+   "transcript": "Mấy năm trước thì là bọn tôi cũng có làm cái cầu bắc sang đây để làm ăn. Theo cái chủ trương thì của xã thì là bây giờ là bọn tôi bắc qua kênh thì nó cũng là có vi phạm. Sau được chủ trương xã là làm cái đường nông thôn mới. Bọn tôi cũng tự.",
+   "audio_start_ms": 61620,
+   "audio_end_ms": 86688,
+   "_t": 87.17866289289668
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_5ab358a09157",
+   "text": "tự nguyện đồng thuận.",
+   "_t": 87.8484348859638
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_5ab358a09157",
+   "text": "Tự nguyện đồng thuận tháo dỡ công trình.",
+   "_t": 88.889555668924
+  },
+  {
+   "type": "input_audio_buffer.speech_stopped",
+   "item_id": "item_5ab358a09157",
+   "audio_end_ms": 89124,
+   "_t": 89.80671596992761
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.completed",
+   "item_id": "item_5ab358a09157",
+   "transcript": "Tự nguyện đồng thuận tháo dỡ công trình.",
+   "audio_start_ms": 86488,
+   "audio_end_ms": 89124,
+   "_t": 89.98480355599895
+  },
+  {
+   "type": "input_audio_buffer.speech_started",
+   "item_id": "item_1fb9192c31aa",
+   "audio_start_ms": 90460,
+   "_t": 90.50878736190498
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_1fb9192c31aa",
+   "text": "Thì bây giờ những cái",
+   "_t": 91.75060649216175
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_1fb9192c31aa",
+   "text": "Thì bây giờ những cái điểm vui chơi khác.",
+   "_t": 92.88639951124787
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_1fb9192c31aa",
+   "text": "Thì bây giờ những cái điểm vui chơi khác thì thành phố cố gắng.",
+   "_t": 94.02270593307912
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_1fb9192c31aa",
+   "text": "Thì bây giờ những cái điểm vui chơi khác thì thành phố cố gắng để làm thế nào.",
+   "_t": 95.1417068359442
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_1fb9192c31aa",
+   "text": "Thì bây giờ những cái điểm vui chơi khác thì thành phố cố gắng để làm thế nào tạo ra những cái khoảng không.",
+   "_t": 96.22665586788207
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_1fb9192c31aa",
+   "text": "Thì bây giờ những cái điểm vui chơi khác thì thành phố cố gắng để làm thế nào tạo ra những cái khoảng không gian và những",
+   "_t": 97.34878096031025
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_1fb9192c31aa",
+   "text": "Thì bây giờ những cái điểm vui chơi khác thì thành phố cố gắng để làm thế nào tạo ra những cái khoảng không gian và những cái điểm nhấn.",
+   "_t": 98.479773954954
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_1fb9192c31aa",
+   "text": "Thì bây giờ những cái điểm vui chơi khác thì thành phố cố gắng để làm thế nào tạo ra những cái khoảng không gian và những cái điểm nhấn về mặt văn hóa để.",
+   "_t": 99.51457296404988
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_1fb9192c31aa",
+   "text": "Thì bây giờ những cái điểm vui chơi khác thì thành phố cố gắng để làm thế nào tạo ra những cái khoảng không gian và những cái điểm nhấn về mặt văn hóa để người dân có thể thưởng thức.",
+   "_t": 100.65410144207999
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_1fb9192c31aa",
+   "text": "Thì bây giờ những cái điểm vui chơi khác thì thành phố cố gắng để làm thế nào tạo ra những cái khoảng không gian và những cái điểm nhấn về mặt văn hóa để người dân có thể thưởng thức. Động lực về mặt",
+   "_t": 101.77945084497333
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_1fb9192c31aa",
+   "text": "Thì bây giờ những cái điểm vui chơi khác thì thành phố cố gắng để làm thế nào tạo ra những cái khoảng không gian và những cái điểm nhấn về mặt văn hóa để người dân có thể thưởng thức, động lực về mặt tinh thần để người.",
+   "_t": 102.81385425990447
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_1fb9192c31aa",
+   "text": "Thì bây giờ những cái điểm vui chơi khác thì thành phố cố gắng để làm thế nào tạo ra những cái khoảng không gian và những cái điểm nhấn về mặt văn hóa để người dân có thể thưởng thức, động lực về mặt tinh thần để người dân bước sang năm.",
+   "_t": 103.94499674998224
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_1fb9192c31aa",
+   "text": "Thì bây giờ những cái điểm vui chơi khác thì thành phố cố gắng để làm thế nào tạo ra những cái khoảng không gian và những cái điểm nhấn về mặt văn hóa để người dân có thể thưởng thức, động lực về mặt tinh thần để người dân bước sang năm nhâm dần hoàn thành các cái.",
+   "_t": 105.09447781927884
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_1fb9192c31aa",
+   "text": "Thì bây giờ những cái điểm vui chơi khác thì thành phố cố gắng để làm thế nào tạo ra những cái khoảng không gian và những cái điểm nhấn về mặt văn hóa để người dân có thể thưởng thức, động lực về mặt tinh thần để người dân bước sang năm nhâm dần hoàn thành các cái dự định những cái kế hoạch.",
+   "_t": 106.1354162232019
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_1fb9192c31aa",
+   "text": "Thì bây giờ những cái điểm vui chơi khác thì thành phố cố gắng để làm thế nào tạo ra những cái khoảng không gian và những cái điểm nhấn về mặt văn hóa để người dân có thể thưởng thức, động lực về mặt tinh thần để người dân bước sang năm nhâm dần hoàn thành các cái dự định, những cái kế hoạch cùng với thành.",
+   "_t": 107.27034046221524
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_1fb9192c31aa",
+   "text": "Thì bây giờ những cái điểm vui chơi khác thì thành phố cố gắng để làm thế nào tạo ra những cái khoảng không gian và những cái điểm nhấn về mặt văn hóa để người dân có thể thưởng thức, động lực về mặt tinh thần để người dân bước sang năm nhâm dần hoàn thành các cái dự định, những cái kế hoạch cùng với thành phố hoàn thành xuất sắc.",
+   "_t": 108.4043112131767
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_1fb9192c31aa",
+   "text": "Thì bây giờ những cái điểm vui chơi khác thì thành phố cố gắng để làm thế nào tạo ra những cái khoảng không gian và những cái điểm nhấn về mặt văn hóa để người dân có thể thưởng thức, động lực về mặt tinh thần để người dân bước sang năm nhâm dần hoàn thành các cái dự định, những cái kế hoạch cùng với thành phố hoàn thành xuất sắc các nhiệm vụ phát triển.",
+   "_t": 109.43411775212735
+  },
+  {
+   "type": "input_audio_buffer.speech_stopped",
+   "item_id": "item_1fb9192c31aa",
+   "audio_end_ms": 109572,
+   "_t": 110.3064871202223
+  },
+  {
+   "type": "input_audio_buffer.speech_started",
+   "item_id": "item_0ef8b83588f4",
+   "audio_start_ms": 110908,
+   "_t": 111.0086295362562
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.completed",
+   "item_id": "item_1fb9192c31aa",
+   "transcript": "Thì bây giờ những cái điểm vui chơi khác thì thành phố cố gắng để làm thế nào tạo ra những cái khoảng không gian và những cái điểm nhấn về mặt văn hóa để người dân có thể thưởng thức, động lực về mặt tinh thần để người dân bước sang năm nhâm dần hoàn thành các cái dự định, những cái kế hoạch cùng với thành phố hoàn thành xuất sắc các nhiệm vụ phát triển kinh tế xã hội.",
+   "audio_start_ms": 90260,
+   "audio_end_ms": 109572,
+   "_t": 111.01308320928365
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_0ef8b83588f4",
+   "text": "Cái đoạn đường ấy là bị",
+   "_t": 112.14744353992864
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_0ef8b83588f4",
+   "text": "Cái đoạn đường này là bị hư hỏng quá nhiều.",
+   "_t": 113.28263200819492
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_0ef8b83588f4",
+   "text": "Cái đoạn đường này là bị hư hỏng quá nhiều, ổ gà nhiều.",
+   "_t": 114.41428814316168
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_0ef8b83588f4",
+   "text": "Cái đoạn đường này là bị hư hỏng quá nhiều, ổ gà nhiều cho nên là",
+   "_t": 115.4462335491553
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_0ef8b83588f4",
+   "text": "Cái đoạn đường này là bị hư hỏng quá nhiều, ổ gà nhiều cho nên là",
+   "_t": 116.54639199515805
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_0ef8b83588f4",
+   "text": "Cái đoạn đường này là bị hư hỏng quá nhiều, ổ gà nhiều cho nên là đi lại là nhiều.",
+   "_t": 117.68173847394064
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_0ef8b83588f4",
+   "text": "Cái đoạn đường này là bị hư hỏng quá nhiều, ổ gà nhiều cho nên là đi lại là nhiều khi là tránh.",
+   "_t": 118.70334577420726
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_0ef8b83588f4",
+   "text": "Cái đoạn đường này là bị hư hỏng quá nhiều, ổ gà nhiều cho nên là đi lại là nhiều khi là tránh nhau là quá sốc.",
+   "_t": 119.8442792952992
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_0ef8b83588f4",
+   "text": "Cái đoạn đường này là bị hư hỏng quá nhiều, ổ gà nhiều cho nên là đi lại là nhiều khi là tránh nhau là vấp sụp, sụp ổ gà là vướng nguy hiểm.",
+   "_t": 121.03721506288275
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_0ef8b83588f4",
+   "text": "Cái đoạn đường này là bị hư hỏng quá nhiều, ổ gà nhiều cho nên là đi lại là nhiều khi là tránh nhau là vấp sụp, sụp ổ gà là vấp nguy hiểm. Mùi là",
+   "_t": 122.06628403393552
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_0ef8b83588f4",
+   "text": "Cái đoạn đường này là bị hư hỏng quá nhiều, ổ gà nhiều cho nên là đi lại là nhiều khi là tránh nhau là vấp sụp, sụp ổ gà là vướng nguy hiểm. Mùi là ô tô đi là lùn.",
+   "_t": 123.2214104370214
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_0ef8b83588f4",
+   "text": "Cái đoạn đường này là bị hư hỏng quá nhiều, ổ gà nhiều cho nên là đi lại là nhiều khi là tránh nhau là vấp sụp, sụp vào ổ gà là vướng nguy hiểm. Mùi là ô tô đi là lùn đầu rồi.",
+   "_t": 124.339613487944
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_0ef8b83588f4",
+   "text": "Cái đoạn đường này là bị hư hỏng quá nhiều, ổ gà nhiều cho nên là đi lại là nhiều khi là tránh nhau là vấp sụp, sụp vào ổ gà là vướng nguy hiểm. Bụi là, ô tô đi là lụt đầu rồi. Cho nên là đoạn đường",
+   "_t": 125.38655204419047
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_0ef8b83588f4",
+   "text": "Cái đoạn đường này là bị hư hỏng quá nhiều, ổ gà nhiều cho nên là đi lại là nhiều khi là tránh nhau là có sụp, sụp gõ gà là có nguy hiểm. Bụi là ô tô đi là lụt đầu rồi. Cho nên là đoạn đường này mỏng manh lại thì. . .",
+   "_t": 126.55020149517804
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_0ef8b83588f4",
+   "text": "Cái đoạn đường này là bị hư hỏng quá nhiều, ổ gà nhiều cho nên là đi lại là nhiều khi là tránh nhau là có sụp sụp ổ gà là có nguy hiểm. Bụi là ô tô đi là lụt đầu rồi. Cho nên là đoạn đường này mòn mòn lại thì nhiều khi dân phải bộ.",
+   "_t": 127.65062166610733
+  },
+  {
+   "type": "input_audio_buffer.speech_stopped",
+   "item_id": "item_0ef8b83588f4",
+   "audio_end_ms": 127140,
+   "_t": 127.80896942410618
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.completed",
+   "item_id": "item_0ef8b83588f4",
+   "transcript": "Cái đoạn đường này là bị hư hỏng quá nhiều, ổ gà nhiều cho nên là đi lại là nhiều khi là tránh nhau là có sụp sụp ổ gà là có nguy hiểm. Bụi là ô tô đi là lụt đầu rồi. Cho nên là đoạn đường này mòn mòn lại thì nhiều khi dân phải bộ.",
+   "audio_start_ms": 110708,
+   "audio_end_ms": 127140,
+   "_t": 128.41509236814454
+  },
+  {
+   "type": "input_audio_buffer.speech_started",
+   "item_id": "item_58c9bb6eda3c",
+   "audio_start_ms": 129244,
+   "_t": 129.30930275423452
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_58c9bb6eda3c",
+   "text": "Và đồng thời qua đó thì",
+   "_t": 130.45446810498834
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_58c9bb6eda3c",
+   "text": "Và đồng thời qua đó thì cũng giáo dục cho các con.",
+   "_t": 131.61231169989333
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_58c9bb6eda3c",
+   "text": "Và đồng thời qua đó thì cũng giáo dục cho các con cái tính.",
+   "_t": 132.72256746701896
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_58c9bb6eda3c",
+   "text": "Và đồng thời qua đó thì cũng giáo dục cho các con cái tính tiết kiệm.",
+   "_t": 133.76119629712775
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_58c9bb6eda3c",
+   "text": "Và đồng thời qua đó thì cũng giáo dục cho các con cái tính tiết kiệm, tiếp nối cái truyền thống.",
+   "_t": 134.90246051130816
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_58c9bb6eda3c",
+   "text": "Và đồng thời qua đó thì cũng giáo dục cho các con cái tính tiết kiệm, tiếp nối cái truyền thống.",
+   "_t": 136.0131059042178
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_58c9bb6eda3c",
+   "text": "Và đồng thời qua đó thì cũng giáo dục cho các con cái tính tiết kiệm, tiếp nối cái truyền thống.",
+   "_t": 137.01233383221552
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_58c9bb6eda3c",
+   "text": "Và đồng thời qua đó thì cũng giáo dục cho các con cái tính tiết kiệm, tiếp nối cái truyền thống trong cái thời buổi hiện đại.",
+   "_t": 138.13531732419506
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_58c9bb6eda3c",
+   "text": "Và đồng thời qua đó thì cũng giáo dục cho các con cái tính tiết kiệm, tiếp nối cái truyền thống trong cái thời đại hiện nay.",
+   "_t": 139.24943210417405
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_58c9bb6eda3c",
+   "text": "Và đồng thời qua đó thì cũng giáo dục cho các con cái tính tiết kiệm, tiếp nối cái truyền thống trong cái thời đại hiện đại ngày nay. Đó là lý do tại sao mà.",
+   "_t": 140.33829616522416
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_58c9bb6eda3c",
+   "text": "Và đồng thời qua đó thì cũng giáo dục cho các con cái tính tiết kiệm, tiếp nối cái truyền thống trong cái thời đại hiện nay. Đó là lý do tại sao mà chúng ta quyết định.",
+   "_t": 141.4491744339466
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_58c9bb6eda3c",
+   "text": "Và đồng thời qua đó thì cũng giáo dục cho các con cái tính tiết kiệm, tiếp nối cái truyền thống trong cái thời buổi hiện đại ngày nay. Đó là lý do tại sao mà chúng tôi quyết định tổ chức những cái buổi workshop.",
+   "_t": 142.6126164700836
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_58c9bb6eda3c",
+   "text": "Và đồng thời qua đó thì cũng giáo dục cho các con cái tính tiết kiệm, tiếp nối cái truyền thống trong cái thời buổi hiện đại ngày nay. Đó là lý do tại sao mà trung tâm quyết định tổ chức những cái buổi workshop vẽ heo đất.",
+   "_t": 143.6335175712593
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_58c9bb6eda3c",
+   "text": "Và đồng thời qua đó thì cũng giáo dục cho các con cái tính tiết kiệm, tiếp nối cái truyền thống trong cái thời đại hiện đại ngày nay. Đó là lý do tại sao mà trung tâm quyết định tổ chức những cái buổi workshop vẽ heo đất như hôm nay.",
+   "_t": 144.7617756742984
+  },
+  {
+   "type": "input_audio_buffer.speech_stopped",
+   "item_id": "item_58c9bb6eda3c",
+   "audio_end_ms": 144164,
+   "_t": 144.8115679109469
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.completed",
+   "item_id": "item_58c9bb6eda3c",
+   "transcript": "Và đồng thời qua đó thì cũng giáo dục cho các con cái tính tiết kiệm, tiếp nối cái truyền thống trong cái thời đại hiện đại ngày nay. Đó là lý do tại sao mà trung tâm quyết định tổ chức những cái buổi workshop vẽ heo đất như hôm nay.",
+   "audio_start_ms": 129044,
+   "audio_end_ms": 144164,
+   "_t": 145.32147348113358
+  },
+  {
+   "type": "input_audio_buffer.speech_started",
+   "item_id": "item_4925aeda8b09",
+   "audio_start_ms": 145884,
+   "_t": 146.00645618513227
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_4925aeda8b09",
+   "text": "Thì đây là mô hình mà.",
+   "_t": 147.15695590432733
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_4925aeda8b09",
+   "text": "Thì đây là mô hình mà tôi thấy rằng nó tương đối.",
+   "_t": 148.18679114617407
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_4925aeda8b09",
+   "text": "Thì đây là mô hình mà tôi thấy rằng nó tương đối hiệu quả đối với.",
+   "_t": 149.32514499500394
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_4925aeda8b09",
+   "text": "Thì đây là mô hình mà tôi thấy rằng nó tương đối hiệu quả đối với cái xã Hòa Trung.",
+   "_t": 150.43172133201733
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_4925aeda8b09",
+   "text": "Thì đây là mô hình mà tôi thấy rằng nó tương đối hiệu quả đối với cái xã Hòa Trung. Mà cũng phải nói rằng là",
+   "_t": 151.53616739623249
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_4925aeda8b09",
+   "text": "Thì đây là mô hình mà tôi thấy rằng nó tương đối hiệu quả đối với cái xã hội chung. Mà cũng phải nói rằng là một người thanh niên đi",
+   "_t": 152.67787772323936
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_4925aeda8b09",
+   "text": "Thì đây là mô hình mà tôi thấy rằng nó tương đối hiệu quả đối với xã hội chung. Mà cũng phải nói rằng là một người thanh niên đi bộ đội.",
+   "_t": 153.79403435112908
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_4925aeda8b09",
+   "text": "Thì đây là mô hình mà tôi thấy rằng nó tương đối hiệu quả đối với cái xã hội chung. Mà cũng phải nói rằng là một người thanh niên đi bộ đội về. Nhưng mà.",
+   "_t": 154.78734511788934
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_4925aeda8b09",
+   "text": "Thì đây là mô hình mà tôi thấy rằng nó tương đối hiệu quả đối với cái xã hội chung. Mà cũng phải nói rằng là một người thanh niên đi bộ đội về nhưng mà dám mạnh dạn đầu.",
+   "_t": 155.96071837795898
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_4925aeda8b09",
+   "text": "Thì đây là mô hình mà tôi thấy rằng nó tương đối hiệu quả đối với xã hội chung. Mà cũng phải nói rằng là một người thanh niên đi bộ đội về nhưng mà dám mạnh dạn đầu tư vào cái lĩnh vực này.",
+   "_t": 157.0980882840231
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_4925aeda8b09",
+   "text": "Thì đây là mô hình mà tôi thấy rằng nó tương đối hiệu quả đối với xã hội chung. Mà cũng phải nói rằng là một người thanh niên đi bộ đội về nhưng mà dám mạnh dạn đầu tư vào cái lĩnh vực này thì cũng thấy là",
+   "_t": 158.12007180601358
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_4925aeda8b09",
+   "text": "Thì đây là mô hình mà tôi thấy rằng nó tương đối hiệu quả đối với xã hội chung. Mà cũng phải nói rằng là một người thanh niên đi bộ đội về nhưng mà dám mạnh dạn đầu tư vào cái lĩnh vực này thì cũng thấy là",
+   "_t": 159.22343592112884
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_4925aeda8b09",
+   "text": "Thì đây là mô hình mà tôi thấy rằng nó tương đối hiệu quả đối với xã hội chung. Mà cũng phải nói rằng là một người thanh niên đi bộ đội về nhưng mà dám mạnh dạn đầu tư vào cái lĩnh vực này thì cũng thấy là hơi hiếm.",
+   "_t": 160.34414899814874
+  },
+  {
+   "type": "input_audio_buffer.speech_stopped",
+   "item_id": "item_4925aeda8b09",
+   "audio_end_ms": 159972,
+   "_t": 160.70687472028658
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.completed",
+   "item_id": "item_4925aeda8b09",
+   "transcript": "Thì đây là mô hình mà tôi thấy rằng nó tương đối hiệu quả đối với xã hội chung. Mà cũng phải nói rằng là một người thanh niên đi bộ đội về nhưng mà dám mạnh dạn đầu tư vào cái lĩnh vực này thì cũng thấy là hơi hiếm.",
+   "audio_start_ms": 145684,
+   "audio_end_ms": 159972,
+   "_t": 161.16909902030602
+  },
+  {
+   "type": "input_audio_buffer.speech_started",
+   "item_id": "item_294b58b1d71d",
+   "audio_start_ms": 161532,
+   "_t": 161.6079007112421
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_294b58b1d71d",
+   "text": "Để hoàn thành được mục tiêu.",
+   "_t": 162.76063308026642
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_294b58b1d71d",
+   "text": "Để hoàn thành được mục tiêu năm mới nâng cao.",
+   "_t": 163.88771511008963
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_294b58b1d71d",
+   "text": "Để hoàn thành được mục tiêu năm mới nâng cao đến năm hai nghìn lẻ mười lăm.",
+   "_t": 164.95616493793204
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_294b58b1d71d",
+   "text": "Để hoàn thành được mục tiêu năm mới nâng cao đến năm hai nghìn lẻ mười lăm, Phong Minh Thị Huyện cũng sẽ",
+   "_t": 166.078450541012
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_294b58b1d71d",
+   "text": "Để hoàn thành được mục tiêu năm mới nâng cao đến năm hai nghìn lẻ mười lăm, Phong Minh Thị Huyện cũng sẽ tiếp tục tạo điều kiện.",
+   "_t": 167.22065793722868
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_294b58b1d71d",
+   "text": "Để hoàn thành được mục tiêu năm mới nâng cao đến năm hai nghìn lẻ hai mươi lăm, Phong Minh Thị huyện cũng sẽ tiếp tục tạo điều kiện hỗ trợ.",
+   "_t": 168.28201764915138
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_294b58b1d71d",
+   "text": "Để hoàn thành được mục tiêu năm mới nâng cao đến năm hai nghìn lẻ hai mươi lăm, thì Phong Minh Thị Huyện cũng sẽ tiếp tục tạo điều kiện hỗ trợ hết sức.",
+   "_t": 169.44321700232103
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_294b58b1d71d",
+   "text": "Để hoàn thành được mục tiêu năm mới nâng cao đến năm hai nghìn lẻ mười lăm, Phong Minh Thị Huyện cũng sẽ tiếp tục tạo điều kiện hỗ trợ hết sức về công tác.",
+   "_t": 170.53411673707888
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_294b58b1d71d",
+   "text": "Để hoàn thành được mục tiêu năm mới nâng cao đến năm hai nghìn lẻ hai mươi lăm, Phường Minh Tiến huyện cũng sẽ tiếp tục tạo điều kiện hỗ trợ hết sức về công tác lãnh đạo.",
+   "_t": 171.5628483821638
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_294b58b1d71d",
+   "text": "Để hoàn thành được mục tiêu năm mới nâng cao đến năm hai nghìn lẻ hai mươi lăm, Phường Minh Tiến huyện cũng sẽ tiếp tục tạo điều kiện hỗ trợ hết sức về công tác lãnh đạo, nguồn lực.",
+   "_t": 172.68518063100055
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_294b58b1d71d",
+   "text": "Để hoàn thành được mục tiêu năm mới nâng cao đến năm hai nghìn lẻ hai mươi lăm, thì Phòng Minh Thị huyện cũng sẽ tiếp tục tạo điều kiện hỗ trợ hết sức về công tác lãnh đạo, nguồn lực cho Phước Quang.",
+   "_t": 173.8046533279121
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_294b58b1d71d",
+   "text": "Để hoàn thành được mục tiêu năm mới nâng cao đến năm hai nghìn lẻ hai mươi lăm, Phường Minh Tiến huyện cũng sẽ tiếp tục tạo điều kiện hỗ trợ hết sức về công tác lãnh đạo, nguồn lực cho Phước Quang nói riêng và các.",
+   "_t": 174.83136708009988
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_294b58b1d71d",
+   "text": "Để hoàn thành được mục tiêu năm mới nâng cao đến năm hai nghìn lẻ mười lăm, Phường Minh Thịnh huyện cũng sẽ tiếp tục tạo điều kiện hỗ trợ hết sức về công tác lãnh đạo, nguồn lực cho Phước Quang nói riêng và các xã còn lại nói chung.",
+   "_t": 175.9763428713195
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_294b58b1d71d",
+   "text": "Để hoàn thành được mục tiêu năm mới nâng cao đến năm hai nghìn lẻ mười lăm, Phường Minh Tiến huyện cũng sẽ tiếp tục tạo điều kiện hỗ trợ hết sức về công tác lãnh đạo, nguồn lực cho Phước Quang nói riêng và các xã còn lại nói chung trong công tác xây dựng.",
+   "_t": 177.1119833579287
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_294b58b1d71d",
+   "text": "Để hoàn thành được mục tiêu nông thôn mới nâng cao đến năm hai nghìn lẻ mười lăm, Phường Minh Tiến huyện cũng sẽ tiếp tục tạo điều kiện hỗ trợ hết sức về công tác lãnh đạo, nguồn lực cho Phước Quang nói riêng và các xã còn lại nói chung trong công tác xây dựng nông thôn mới.",
+   "_t": 178.13999098120257
+  },
+  {
+   "type": "input_audio_buffer.speech_stopped",
+   "item_id": "item_294b58b1d71d",
+   "audio_end_ms": 177988,
+   "_t": 178.70733838994056
+  },
+  {
+   "type": "input_audio_buffer.speech_started",
+   "item_id": "item_057f6f67101f",
+   "audio_start_ms": 179132,
+   "_t": 179.20844838488847
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.completed",
+   "item_id": "item_294b58b1d71d",
+   "transcript": "Để hoàn thành được mục tiêu nông thôn mới nâng cao đến năm hai nghìn lẻ mười lăm, Phường Minh Tiến huyện cũng sẽ tiếp tục tạo điều kiện hỗ trợ hết sức về công tác lãnh đạo, nguồn lực cho Phước Quang nói riêng và các xã còn lại nói chung trong công tác xây dựng nông thôn mới nâng cao.",
+   "audio_start_ms": 161332,
+   "audio_end_ms": 177988,
+   "_t": 179.30052008805797
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_057f6f67101f",
+   "text": "Đặc biệt là.",
+   "_t": 180.34068145696074
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_057f6f67101f",
+   "text": "Đặc biệt là cái",
+   "_t": 181.4387243851088
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_057f6f67101f",
+   "text": "Đặc biệt là cái số vụ mà",
+   "_t": 182.46483416715637
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_057f6f67101f",
+   "text": "Đặc biệt là cái số vụ mà vi phạm.",
+   "_t": 183.60292218299583
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_057f6f67101f",
+   "text": "Đặc biệt là cái số vụ mà vi phạm, số vụ vi phạm.",
+   "_t": 184.74449008330703
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_057f6f67101f",
+   "text": "Đặc biệt là cái số vụ vi phạm trong những năm gần đây.",
+   "_t": 185.74039229331538
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_057f6f67101f",
+   "text": "Đặc biệt là cái số vụ vi phạm, số vụ vi phạm trong những năm gần đây.",
+   "_t": 186.8759286440909
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_057f6f67101f",
+   "text": "Đặc biệt là cái số vụ vi phạm, số vụ vi phạm trong những năm gần đây đã ít hơn.",
+   "_t": 187.9944765972905
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_057f6f67101f",
+   "text": "Đặc biệt là cái số vụ vi phạm, số vụ vi phạm trong những năm gần đây đã ít hơn, giảm hẳn.",
+   "_t": 188.99004641501233
+  },
+  {
+   "type": "input_audio_buffer.speech_stopped",
+   "item_id": "item_057f6f67101f",
+   "audio_end_ms": 188516,
+   "_t": 189.20705753704533
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.completed",
+   "item_id": "item_057f6f67101f",
+   "transcript": "Đặc biệt là cái số vụ vi phạm, số vụ vi phạm trong những năm gần đây đã ít hơn, giảm hẳn.",
+   "audio_start_ms": 178932,
+   "audio_end_ms": 188516,
+   "_t": 189.4805031050928
+  },
+  {
+   "type": "input_audio_buffer.speech_started",
+   "item_id": "item_475a8b32173c",
+   "audio_start_ms": 189884,
+   "_t": 190.0052307760343
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_475a8b32173c",
+   "text": "Tới thì làm như.",
+   "_t": 191.14484485890716
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_475a8b32173c",
+   "text": "Tới thì làm với hệ thống máy thì.",
+   "_t": 192.16484063025564
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_475a8b32173c",
+   "text": "Tới thì làm với hệ thống máy thì rất tiện lợi hơn.",
+   "_t": 193.29904507705942
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_475a8b32173c",
+   "text": "Tới thì làm với hệ thống máy thì rất tiện lợi hơn. Ví dụ như mình",
+   "_t": 194.41220420692116
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_475a8b32173c",
+   "text": "Tới thì làm với hệ thống máy thì rất tiện lợi hơn. Ví dụ như mình biết cái thông tin.",
+   "_t": 195.43641561316326
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_475a8b32173c",
+   "text": "Tới thì làm với hệ thống mới thì rất tiện lợi hơn. Ví dụ như mình biết cái thông tin ngày.",
+   "_t": 196.53578295512125
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_475a8b32173c",
+   "text": "Tới thì làm với hệ thống mới thì rất tiện lợi hơn. Ví dụ như mình biết cái thông tin ngày hạn của mình.",
+   "_t": 197.6921927202493
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_475a8b32173c",
+   "text": "Tới thì làm với hệ thống mới thì rất tiện lợi hơn. Ví dụ như mình biết cái thông tin ngày hạn của mình trong thông tin trên hệ thống.",
+   "_t": 198.73505866201594
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_475a8b32173c",
+   "text": "Tới thì làm với hệ thống mới thì rất tiện lợi hơn. Ví dụ như mình biết cái thông tin ngày hạn của mình trong thông tin trên hệ thống tổng.",
+   "_t": 199.86346124205738
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_475a8b32173c",
+   "text": "Tới thì làm với hệ thống mới thì rất tiện lợi hơn. Ví dụ như mình biết cái thông tin ngày hạn của mình trong thông tin trên cái hệ thống thông tin điện tử.",
+   "_t": 200.98863266129047
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_475a8b32173c",
+   "text": "Tới thì làm với hệ thống mới thì rất tiện lợi hơn. Ví dụ như mình biết cái thông tin ngày hạn của mình trong thông tin trên cái hệ thống tổng thông tin điện tử, mình vào cập nhật thông tin thì mình lấy.",
+   "_t": 202.06819894630462
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_475a8b32173c",
+   "text": "Tới thì làm với hệ thống mới thì rất tiện lợi hơn. Ví dụ như mình biết cái thông tin ngày hạn của mình trong thông tin trên cái hệ thống tổng thông tin điện tử, mình vào cập nhật thông tin thì mình lấy cái ngày",
+   "_t": 203.16644108714536
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_475a8b32173c",
+   "text": "Tới thì làm với hệ thống mới thì rất tiện lợi hơn. Ví dụ như mình biết cái thông tin ngày hạn của mình trong thông tin trên cái hệ thống tổng thông tin điện tử, mình vào cập nhật thông tin thì mình lấy nó sẽ thuận lợi.",
+   "_t": 204.2832888122648
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_475a8b32173c",
+   "text": "Tới thì làm với hệ thống mới thì rất tiện lợi hơn. Ví dụ như mình biết cái thông tin ngày hạn của mình trong thông tin trên cái hệ thống tổng thông tin điện tử, mình vào cập nhật thông tin thì mình lấy nó sẽ thuận lợi hơn rất nhiều hơn.",
+   "_t": 205.3197689219378
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_475a8b32173c",
+   "text": "Tới thì làm với hệ thống mới thì rất tiện lợi hơn. Ví dụ như mình biết cái thông tin ngày hạn của mình trong thông tin trên cái hệ thống tổng thông tin điện tử, mình vào cập nhật thông tin thì mình lấy nó sẽ thuận lợi rất nhiều hơn cái giấy tờ mình trả tới.",
+   "_t": 206.4514946672134
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_475a8b32173c",
+   "text": "Tới thì làm với hệ thống mới thì rất tiện lợi hơn. Ví dụ như mình biết cái thông tin ngày hạn của mình trong thông tin trên cái hệ thống tổng thông tin điện tử, mình vào cập nhật thông tin thì mình lấy nó sẽ thuận lợi hơn cái giấy tờ mình trả tới trả lui.",
+   "_t": 207.5385929918848
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.partial",
+   "item_id": "item_475a8b32173c",
+   "text": "Tới thì làm với hệ thống mới thì rất tiện lợi hơn. Ví dụ như mình biết cái thông tin ngày hạn của mình trong thông tin trên cái hệ thống tổng thông tin điện tử, mình vào cập nhật thông tin thì mình lấy nó sẽ thuận lợi hơn cái giấy tờ mình trả tới trả lui cho nó phiền phức hơn.",
+   "_t": 208.59992362605408
+  },
+  {
+   "type": "input_audio_buffer.speech_stopped",
+   "item_id": "item_475a8b32173c",
+   "audio_end_ms": 208068,
+   "_t": 208.7115988121368
+  },
+  {
+   "type": "conversation.item.input_audio_transcription.completed",
+   "item_id": "item_475a8b32173c",
+   "transcript": "Tới thì làm với hệ thống mới thì rất tiện lợi hơn. Ví dụ như mình biết cái thông tin ngày hạn của mình trong thông tin trên cái hệ thống tổng thông tin điện tử, mình vào cập nhật thông tin thì mình lấy nó sẽ thuận lợi hơn cái giấy tờ mình trả tới trả lui cho nó phiền phức hơn.",
+   "audio_start_ms": 189684,
+   "audio_end_ms": 208068,
+   "_t": 209.28057289728895
+  }
+ ]
+}

@@ -68,12 +68,32 @@ On a different 100-clip subset (bf16 = 9.98 WER): q4 11.64, q3 group 16 23.85, q
 - **Outputs start with `language Vietnamese<asr_text>`** (the training target format); strip it client-side with `^\s*language\s+\S+?<asr_text>`, otherwise WER is inflated.
 - Untested: audio longer than 30 s (training clips were ≤ 30 s; 58 s and 142 s files returned plausible text but were not scored).
 
+## Realtime transcription (proof of concept)
+
+`realtime/gateway.py` is a WebSocket gateway in front of the vLLM server: audio in, Silero VAD, partial and final transcripts out. The vLLM server itself has no realtime endpoint, and Qwen's native streaming (`init_streaming_state`) was not used.
+
+```bash
+./serve_vllm.sh                                   # upstream ASR on :8100
+uvicorn gateway:app --app-dir realtime --port 8200
+python realtime/test_stream.py --clips 12         # streams test clips at real-time speed
+```
+
+- **Protocol:** subset of OpenAI's Realtime *transcription* session at `ws://host:8200/v1/realtime` (`input_audio_buffer.append/commit`, `speech_started/stopped`, `conversation.item.input_audio_transcription.completed`). Default input is 24 kHz PCM16 like OpenAI; `?sample_rate=16000` skips resampling. Partials use a **non-standard** event `...transcription.partial` carrying the full hypothesis so far.
+- **VAD:** yes, Silero VAD on 512-sample frames (threshold 0.2, 800 ms of silence ends an utterance, utterances over 25 s are split).
+- **Partials:** while speech is active, the audio of the current utterance is re-transcribed every 1 s (re-decoding a growing buffer, not incremental decoding). At end of speech it is transcribed once more as the final.
+
+Measured with 12 test clips (209 s) streamed at 1x speed: 14 finals, stream WER 11.62 vs 9.94 for offline per-clip decoding of the same clips; final transcript arrives p50 1.15 s / p95 1.43 s after the audio of that utterance ends (about 0.8 s of that is the silence wait); first partial p50 1.24 s after speech starts. On a different 30 clips (4x pacing, WER only): 11.07 vs 11.46 offline.
+
+Things that mattered: Silero's default threshold (0.5) missed most of one noisy clip and added about 5 WER points on the 12-clip stream; 0.2 fixed it. Silence length changed segmentation (27 / 17 / 15 utterances at 500 / 800 / 1200 ms) but not WER.
+
+Limitations: only concatenated clean test clips with digital-silence gaps were tested (no microphone, no background noise, no overlapping speakers, one client at a time). The 0.2 threshold was tuned on 12 clips and its false-alarm rate on real noise is untested. 24 kHz resampling is per message and was not tested. Utterances split mid-sentence at long pauses lose some context.
+
 ## Reproduce
 
 ```bash
 ./setup.sh                      # venv (uv), qwen-asr[vllm]==0.0.6, models; edit env.sh for your GPU
 source env.sh
-pip install bitsandbytes hqq     # QLoRA / quantization
+pip install bitsandbytes hqq silero-vad   # QLoRA, quantization, realtime VAD
 python data_prep/build_vimd_dataset.py --out data/prepared
 export VIMD_DATA=$PWD/data/prepared
 ./run_all.sh                    # LoRA -> QLoRA -> test eval (base, LoRA, QLoRA)
@@ -88,6 +108,7 @@ python eval_quant.py --configs bf16 q8 q6 q4 q3 q2 --max_samples 400
 | `eval_wer.py` | Test-set WER/CER for base, adapters and full models (overall + per region) |
 | `eval_quant.py`, `load_hqq_asr.py` | Quantization sweep and loader for the HQQ checkpoints |
 | `serve_vllm.sh` | vLLM server config |
+| `realtime/` | WebSocket realtime gateway (Silero VAD) and streaming test client |
 | `results/` | Per-step training logs, run summaries, all test predictions |
 
 Tested with: torch 2.9.1, transformers 4.57.6, peft 0.21.2, bitsandbytes 0.50.2, hqq 0.2.8, vllm 0.14.0, qwen-asr 0.0.6.
