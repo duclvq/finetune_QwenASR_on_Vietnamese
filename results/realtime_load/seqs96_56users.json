@@ -1,0 +1,30 @@
+[
+ {
+  "users": 56,
+  "wall_s": 96,
+  "finals": 233,
+  "errors": 0,
+  "error_samples": [],
+  "stream_wer": 8.82,
+  "final_latency_s": {
+   "p50": 3.24,
+   "p95": 5.25,
+   "max": 5.88
+  },
+  "drift_p50_first_vs_second_half_s": [
+   3.83,
+   2.93
+  ],
+  "first_partial_p50_s": 1.66,
+  "gpu_util_pct": {
+   "mean": 53,
+   "p95": 82
+  },
+  "gpu_power_w": {
+   "mean": 136,
+   "max": 146
+  },
+  "gpu_mem_gb": 11.2,
+  "gateway_cpu_cores_busy": 2.46
+ }
+]

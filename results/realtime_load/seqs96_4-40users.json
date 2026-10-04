@@ -1,0 +1,142 @@
+[
+ {
+  "users": 4,
+  "wall_s": 75,
+  "finals": 14,
+  "errors": 0,
+  "error_samples": [],
+  "stream_wer": 7.88,
+  "final_latency_s": {
+   "p50": 1.21,
+   "p95": 1.53,
+   "max": 1.54
+  },
+  "drift_p50_first_vs_second_half_s": [
+   1.13,
+   1.22
+  ],
+  "first_partial_p50_s": 1.28,
+  "gpu_util_pct": {
+   "mean": 70,
+   "p95": 100
+  },
+  "gpu_power_w": {
+   "mean": 128,
+   "max": 146
+  },
+  "gpu_mem_gb": 14.0,
+  "gateway_cpu_cores_busy": 0.32
+ },
+ {
+  "users": 16,
+  "wall_s": 94,
+  "finals": 70,
+  "errors": 0,
+  "error_samples": [],
+  "stream_wer": 8.38,
+  "final_latency_s": {
+   "p50": 1.57,
+   "p95": 2.17,
+   "max": 2.41
+  },
+  "drift_p50_first_vs_second_half_s": [
+   1.78,
+   1.54
+  ],
+  "first_partial_p50_s": 1.33,
+  "gpu_util_pct": {
+   "mean": 69,
+   "p95": 100
+  },
+  "gpu_power_w": {
+   "mean": 142,
+   "max": 147
+  },
+  "gpu_mem_gb": 14.0,
+  "gateway_cpu_cores_busy": 0.99
+ },
+ {
+  "users": 24,
+  "wall_s": 93,
+  "finals": 108,
+  "errors": 0,
+  "error_samples": [],
+  "stream_wer": 8.61,
+  "final_latency_s": {
+   "p50": 1.73,
+   "p95": 2.56,
+   "max": 3.17
+  },
+  "drift_p50_first_vs_second_half_s": [
+   1.8,
+   1.7
+  ],
+  "first_partial_p50_s": 1.34,
+  "gpu_util_pct": {
+   "mean": 56,
+   "p95": 100
+  },
+  "gpu_power_w": {
+   "mean": 142,
+   "max": 147
+  },
+  "gpu_mem_gb": 14.0,
+  "gateway_cpu_cores_busy": 1.38
+ },
+ {
+  "users": 32,
+  "wall_s": 101,
+  "finals": 148,
+  "errors": 0,
+  "error_samples": [],
+  "stream_wer": 9.57,
+  "final_latency_s": {
+   "p50": 2.2,
+   "p95": 3.28,
+   "max": 4.02
+  },
+  "drift_p50_first_vs_second_half_s": [
+   2.28,
+   2.13
+  ],
+  "first_partial_p50_s": 1.45,
+  "gpu_util_pct": {
+   "mean": 60,
+   "p95": 100
+  },
+  "gpu_power_w": {
+   "mean": 140,
+   "max": 146
+  },
+  "gpu_mem_gb": 14.0,
+  "gateway_cpu_cores_busy": 1.58
+ },
+ {
+  "users": 40,
+  "wall_s": 93,
+  "finals": 180,
+  "errors": 0,
+  "error_samples": [],
+  "stream_wer": 8.97,
+  "final_latency_s": {
+   "p50": 2.56,
+   "p95": 3.72,
+   "max": 4.36
+  },
+  "drift_p50_first_vs_second_half_s": [
+   2.84,
+   2.31
+  ],
+  "first_partial_p50_s": 1.51,
+  "gpu_util_pct": {
+   "mean": 50,
+   "p95": 82
+  },
+  "gpu_power_w": {
+   "mean": 137,
+   "max": 145
+  },
+  "gpu_mem_gb": 14.0,
+  "gateway_cpu_cores_busy": 1.96
+ }
+]

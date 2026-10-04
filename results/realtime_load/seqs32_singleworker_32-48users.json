@@ -1,0 +1,89 @@
+[
+ {
+  "users": 32,
+  "wall_s": 112,
+  "finals": 181,
+  "errors": 0,
+  "error_samples": [],
+  "stream_wer": 10.66,
+  "final_latency_s": {
+   "p50": 4.2,
+   "p95": 6.53,
+   "max": 8.33
+  },
+  "drift_p50_first_vs_second_half_s": [
+   4.55,
+   3.83
+  ],
+  "first_partial_p50_s": 4.56,
+  "gpu_util_pct": {
+   "mean": 70,
+   "p95": 100
+  },
+  "gpu_power_w": {
+   "mean": 140,
+   "max": 148
+  },
+  "gpu_mem_gb": 11.6,
+  "gateway_cpu_pct_of_one_core": 87
+ },
+ {
+  "users": 40,
+  "wall_s": 117,
+  "finals": 223,
+  "errors": 0,
+  "error_samples": [],
+  "stream_wer": 10.32,
+  "final_latency_s": {
+   "p50": 21.87,
+   "p95": 35.54,
+   "max": 43.21
+  },
+  "drift_p50_first_vs_second_half_s": [
+   24.37,
+   14.31
+  ],
+  "first_partial_p50_s": 14.49,
+  "gpu_util_pct": {
+   "mean": 68,
+   "p95": 100
+  },
+  "gpu_power_w": {
+   "mean": 123,
+   "max": 148
+  },
+  "gpu_mem_gb": 11.6,
+  "gateway_cpu_pct_of_one_core": 87
+ },
+ {
+  "users": 48,
+  "wall_s": 115,
+  "finals": 185,
+  "errors": 5,
+  "error_samples": [
+   "TimeoutError('timed out during opening handshake')",
+   "TimeoutError('timed out during opening handshake')"
+  ],
+  "stream_wer": 35.06,
+  "final_latency_s": {
+   "p50": 38.57,
+   "p95": 56.74,
+   "max": 63.43
+  },
+  "drift_p50_first_vs_second_half_s": [
+   42.06,
+   21.15
+  ],
+  "first_partial_p50_s": 13.81,
+  "gpu_util_pct": {
+   "mean": 27,
+   "p95": 100
+  },
+  "gpu_power_w": {
+   "mean": 82,
+   "max": 142
+  },
+  "gpu_mem_gb": 11.6,
+  "gateway_cpu_pct_of_one_core": 87
+ }
+]

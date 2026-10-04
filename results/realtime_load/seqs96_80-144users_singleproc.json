@@ -1,0 +1,91 @@
+[
+ {
+  "users": 80,
+  "wall_s": 100,
+  "finals": 346,
+  "errors": 0,
+  "error_samples": [],
+  "stream_wer": 8.75,
+  "final_latency_s": {
+   "p50": 3.93,
+   "p95": 6.36,
+   "max": 7.93
+  },
+  "drift_p50_first_vs_second_half_s": [
+   4.33,
+   3.69
+  ],
+  "first_partial_p50_s": 1.83,
+  "gpu_util_pct": {
+   "mean": 55,
+   "p95": 84
+  },
+  "gpu_power_w": {
+   "mean": 139,
+   "max": 147
+  },
+  "gpu_mem_gb": 13.0,
+  "gateway_cpu_cores_busy": 2.8
+ },
+ {
+  "users": 112,
+  "wall_s": 102,
+  "finals": 513,
+  "errors": 1,
+  "error_samples": [
+   "Client error '400 Bad Request' for url 'http://127.0.0.1:8100/v1/audio/transcrip"
+  ],
+  "stream_wer": 9.25,
+  "final_latency_s": {
+   "p50": 4.95,
+   "p95": 7.85,
+   "max": 9.36
+  },
+  "drift_p50_first_vs_second_half_s": [
+   5.54,
+   4.55
+  ],
+  "first_partial_p50_s": 2.69,
+  "gpu_util_pct": {
+   "mean": 57,
+   "p95": 78
+  },
+  "gpu_power_w": {
+   "mean": 142,
+   "max": 147
+  },
+  "gpu_mem_gb": 13.5,
+  "gateway_cpu_cores_busy": 3.54
+ },
+ {
+  "users": 144,
+  "wall_s": 102,
+  "finals": 654,
+  "errors": 2,
+  "error_samples": [
+   "Client error '400 Bad Request' for url 'http://127.0.0.1:8100/v1/audio/transcrip",
+   "Client error '400 Bad Request' for url 'http://127.0.0.1:8100/v1/audio/transcrip"
+  ],
+  "stream_wer": 8.9,
+  "final_latency_s": {
+   "p50": 6.28,
+   "p95": 9.31,
+   "max": 12.42
+  },
+  "drift_p50_first_vs_second_half_s": [
+   6.47,
+   6.06
+  ],
+  "first_partial_p50_s": 4.21,
+  "gpu_util_pct": {
+   "mean": 60,
+   "p95": 79
+  },
+  "gpu_power_w": {
+   "mean": 143,
+   "max": 147
+  },
+  "gpu_mem_gb": 13.5,
+  "gateway_cpu_cores_busy": 4.06
+ }
+]

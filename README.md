@@ -60,7 +60,7 @@ On a different 100-clip subset (bf16 = 9.98 WER): q4 11.64, q3 group 16 23.85, q
 
 ## Serving with vLLM
 
-`./serve_vllm.sh` serves the full model (OpenAI-compatible, `127.0.0.1:8100`, 32 concurrent sequences, `max-model-len 4096`, `gpu-memory-utilization 0.5`).
+`./serve_vllm.sh` serves the full model (OpenAI-compatible, `127.0.0.1:8100`, 96 concurrent sequences (`MAX_SEQS`, was 32), `max-model-len 4096`, `gpu-memory-utilization 0.5`).
 
 - Supported: `POST /v1/audio/transcriptions` (`json`/`text`, `stream=true`), `/v1/chat/completions` with `audio_url`.
 - Not supported: `verbose_json`/`srt`/`vtt` (no timestamps), OpenAI Realtime API, Batch API.
@@ -74,7 +74,7 @@ On a different 100-clip subset (bf16 = 9.98 WER): q4 11.64, q3 group 16 23.85, q
 
 ```bash
 ./serve_vllm.sh                                   # upstream ASR on :8100
-uvicorn gateway:app --app-dir realtime --port 8200
+uvicorn gateway:app --app-dir realtime --port 8200 --workers 6   # one worker saturates a CPU core at ~30 users
 python realtime/test_stream.py --clips 12         # streams test clips at real-time speed
 ```
 
@@ -87,6 +87,21 @@ Measured with 12 test clips (209 s) streamed at 1x speed: 14 finals, stream WER 
 Things that mattered: Silero's default threshold (0.5) missed most of one noisy clip and added about 5 WER points on the 12-clip stream; 0.2 fixed it. Silence length changed segmentation (27 / 17 / 15 utterances at 500 / 800 / 1200 ms) but not WER.
 
 Limitations: only concatenated clean test clips with digital-silence gaps were tested (no microphone, no background noise, no overlapping speakers, one client at a time). The 0.2 threshold was tuned on 12 clips and its false-alarm rate on real noise is untested. 24 kHz resampling is per message and was not tested. Utterances split mid-sentence at long pauses lose some context.
+
+### Capacity (simulated users streaming at 1x, nearly continuous speech)
+
+`python realtime/load_test.py --users 16 32 56 --seconds 60` (raw results in `results/realtime_load/`). vLLM with 96 sequences, 6 gateway workers, RTX PRO 4000 Blackwell 24 GB:
+
+| Users | 4 | 16 | 24 | 32 | 40 | 56 | 80 | 112 | 144 |
+|---|---|---|---|---|---|---|---|---|---|
+| final latency p50 (s) | 1.21 | 1.57 | 1.73 | 2.20 | 2.56 | 3.24 | 3.93 | 5.07 | 7.40 |
+| final latency p95 (s) | 1.53 | 2.17 | 2.56 | 3.28 | 3.72 | 5.25 | 6.36 | 7.88 | 11.42 |
+
+p95 stays under 3 s up to ~28 users, under 5 s up to ~52, and no request failed in the two-generator runs at 112 and 144 users (the single-generator runs had 1 and 2 HTTP 400 errors, cause not investigated). Stream WER stayed at 7.9-9.6% up to 112 users.
+
+- GPU: 136-143 W of a 145 W limit from 16 users on (SM clock 2430 vs 3090 MHz max in one sample at 56 users), so it is power-limited; nvidia-smi "utilization" averages 50-70%, which is not a saturation measure. VRAM 11-14 GB of 24 GB.
+- A single gateway process hit 100% of one CPU core at ~30 users (p95 6.5 s at 32, 35 s at 40) while the GPU sat at 27-37%; 6 workers removed that bottleneck. vLLM `max-num-seqs` 32 to 96 cut p95 at 56 users from 7.2 to 5.25 s. Partials every 2 s instead of 1 s cut it further to 4.2 s (`PARTIAL_EVERY=2`), at the cost of a slower first partial.
+- Limits: clean test clips with digital-silence gaps only, one run per level, no real microphone or noise; whether vLLM's single engine loop (~1.8 CPU cores at 56 users) is a ceiling was not tested.
 
 ## Reproduce
 

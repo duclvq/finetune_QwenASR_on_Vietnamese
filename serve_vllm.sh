@@ -14,6 +14,6 @@ exec qwen-asr-serve "$MODEL" \
   --dtype bfloat16 \
   --gpu-memory-utilization 0.5 \
   --max-model-len 4096 \
-  --max-num-seqs 32 \
-  --max-num-batched-tokens 8192 \
+  --max-num-seqs "${MAX_SEQS:-96}" \
+  --max-num-batched-tokens "${MAX_BATCHED:-16384}" \
   --limit-mm-per-prompt '{"audio":1}'

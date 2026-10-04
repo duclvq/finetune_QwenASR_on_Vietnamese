@@ -1,0 +1,86 @@
+[
+ {
+  "users": 32,
+  "wall_s": 111,
+  "finals": 184,
+  "errors": 0,
+  "error_samples": [],
+  "stream_wer": 9.8,
+  "final_latency_s": {
+   "p50": 2.41,
+   "p95": 3.73,
+   "max": 5.04
+  },
+  "drift_p50_first_vs_second_half_s": [
+   2.42,
+   2.4
+  ],
+  "first_partial_p50_s": 1.48,
+  "gpu_util_pct": {
+   "mean": 51,
+   "p95": 84
+  },
+  "gpu_power_w": {
+   "mean": 135,
+   "max": 146
+  },
+  "gpu_mem_gb": 11.6,
+  "gateway_cpu_pct_of_one_core": 0
+ },
+ {
+  "users": 48,
+  "wall_s": 112,
+  "finals": 262,
+  "errors": 0,
+  "error_samples": [],
+  "stream_wer": 9.19,
+  "final_latency_s": {
+   "p50": 3.65,
+   "p95": 5.49,
+   "max": 6.72
+  },
+  "drift_p50_first_vs_second_half_s": [
+   3.81,
+   3.54
+  ],
+  "first_partial_p50_s": 2.49,
+  "gpu_util_pct": {
+   "mean": 44,
+   "p95": 72
+  },
+  "gpu_power_w": {
+   "mean": 135,
+   "max": 147
+  },
+  "gpu_mem_gb": 11.6,
+  "gateway_cpu_pct_of_one_core": 0
+ },
+ {
+  "users": 64,
+  "wall_s": 112,
+  "finals": 345,
+  "errors": 0,
+  "error_samples": [],
+  "stream_wer": 8.09,
+  "final_latency_s": {
+   "p50": 5.03,
+   "p95": 7.49,
+   "max": 9.84
+  },
+  "drift_p50_first_vs_second_half_s": [
+   5.27,
+   4.78
+  ],
+  "first_partial_p50_s": 3.86,
+  "gpu_util_pct": {
+   "mean": 43,
+   "p95": 66
+  },
+  "gpu_power_w": {
+   "mean": 132,
+   "max": 146
+  },
+  "gpu_mem_gb": 11.6,
+  "gateway_cpu_pct_of_one_core": 0
+ }
+]
