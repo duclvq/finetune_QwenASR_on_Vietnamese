@@ -1,0 +1,22 @@
+{
+  "mode": "qlora",
+  "trainable_params": 17432576,
+  "total_params": 1350841984,
+  "train_wall_s": 4524.5,
+  "peak_gpu_gb": 13.33,
+  "final_eval": {
+    "eval_loss": 0.33491575717926025,
+    "eval_runtime": 16.1178,
+    "eval_samples_per_second": 12.409,
+    "eval_steps_per_second": 1.551,
+    "epoch": 2.0
+  },
+  "state": {
+    "eval_loss": 0.33491575717926025,
+    "eval_runtime": 16.1178,
+    "eval_samples_per_second": 12.409,
+    "eval_steps_per_second": 1.551,
+    "epoch": 2.0,
+    "step": 1294
+  }
+}

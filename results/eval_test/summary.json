@@ -1,0 +1,74 @@
+{
+  "base": {
+    "infer_seconds": 969.3,
+    "All": {
+      "clips": 1368,
+      "wer": 11.56,
+      "cer": 8.12
+    },
+    "North": {
+      "clips": 759,
+      "wer": 8.56,
+      "cer": 6.54
+    },
+    "Central": {
+      "clips": 609,
+      "wer": 15.45,
+      "cer": 10.18
+    }
+  },
+  "lora-1.7b": {
+    "infer_seconds": 1101.3,
+    "All": {
+      "clips": 1368,
+      "wer": 8.72,
+      "cer": 6.29
+    },
+    "North": {
+      "clips": 759,
+      "wer": 6.59,
+      "cer": 4.97
+    },
+    "Central": {
+      "clips": 609,
+      "wer": 11.47,
+      "cer": 8.01
+    }
+  },
+  "qlora-1.7b": {
+    "infer_seconds": 1078.4,
+    "All": {
+      "clips": 1368,
+      "wer": 9.45,
+      "cer": 6.8
+    },
+    "North": {
+      "clips": 759,
+      "wer": 7.23,
+      "cer": 5.51
+    },
+    "Central": {
+      "clips": 609,
+      "wer": 12.31,
+      "cer": 8.48
+    }
+  },
+  "full-1.7b": {
+    "infer_seconds": 1002.6,
+    "All": {
+      "clips": 1368,
+      "wer": 8.59,
+      "cer": 6.17
+    },
+    "North": {
+      "clips": 759,
+      "wer": 6.6,
+      "cer": 4.93
+    },
+    "Central": {
+      "clips": 609,
+      "wer": 11.17,
+      "cer": 7.8
+    }
+  }
+}

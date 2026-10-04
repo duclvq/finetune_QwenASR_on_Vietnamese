@@ -1,0 +1,22 @@
+{
+  "mode": "full",
+  "trainable_params": 2038052480,
+  "total_params": 2038052480,
+  "train_wall_s": 7583.2,
+  "peak_gpu_gb": 18.09,
+  "final_eval": {
+    "eval_loss": 0.33198437094688416,
+    "eval_runtime": 11.6786,
+    "eval_samples_per_second": 17.125,
+    "eval_steps_per_second": 2.141,
+    "epoch": 2.0
+  },
+  "state": {
+    "eval_loss": 0.33198437094688416,
+    "eval_runtime": 11.6786,
+    "eval_samples_per_second": 17.125,
+    "eval_steps_per_second": 2.141,
+    "epoch": 2.0,
+    "step": 1294
+  }
+}

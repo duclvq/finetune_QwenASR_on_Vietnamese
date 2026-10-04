@@ -1,0 +1,67 @@
+{
+  "bf16": {
+    "method": "bf16",
+    "bits": 16,
+    "group": 0,
+    "clips": 400,
+    "wer": 8.68,
+    "cer": 6.29,
+    "gpu_gb_after_load": 3.8,
+    "gpu_gb_peak": 5.12,
+    "load_s": 4.9,
+    "infer_s": 290.6,
+    "empty_hyps": 0
+  },
+  "q8": {
+    "method": "hqq",
+    "bits": 8,
+    "group": 64,
+    "clips": 400,
+    "wer": 8.69,
+    "cer": 6.29,
+    "gpu_gb_after_load": 2.66,
+    "gpu_gb_peak": 3.97,
+    "load_s": 7.2,
+    "infer_s": 577.0,
+    "empty_hyps": 0
+  },
+  "q6": {
+    "method": "fake-rtn",
+    "bits": 6,
+    "group": 64,
+    "clips": 400,
+    "wer": 8.63,
+    "cer": 6.18,
+    "gpu_gb_after_load": 3.81,
+    "gpu_gb_peak": 5.14,
+    "load_s": 6.4,
+    "infer_s": 303.3,
+    "empty_hyps": 0
+  },
+  "q4": {
+    "method": "hqq",
+    "bits": 4,
+    "group": 64,
+    "clips": 400,
+    "wer": 10.29,
+    "cer": 7.21,
+    "gpu_gb_after_load": 2.01,
+    "gpu_gb_peak": 3.32,
+    "load_s": 6.8,
+    "infer_s": 678.0,
+    "empty_hyps": 0
+  },
+  "q3": {
+    "method": "hqq",
+    "bits": 3,
+    "group": 64,
+    "clips": 400,
+    "wer": 100.92,
+    "cer": 96.84,
+    "gpu_gb_after_load": 1.89,
+    "gpu_gb_peak": 3.22,
+    "load_s": 8.6,
+    "infer_s": 2858.8,
+    "empty_hyps": 0
+  }
+}

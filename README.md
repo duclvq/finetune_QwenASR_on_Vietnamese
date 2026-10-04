@@ -1,0 +1,101 @@
+# finetune_QwenASR_on_Vietnamese
+
+Fine-tuning [Qwen3-ASR-1.7B](https://github.com/QwenLM/Qwen3-ASR) for Vietnamese dialect speech with **LoRA, QLoRA and full fine-tuning**, plus weight-only quantization (q8 → q2) and vLLM serving. Everything here was run on a single 24 GB GPU; every training step is logged (`results/*/train_log.jsonl`).
+
+Models on Hugging Face (public):
+- LoRA adapter: [`duclvQ/qwen3-asr-1.7b-vimd-lora`](https://huggingface.co/duclvQ/qwen3-asr-1.7b-vimd-lora)
+- QLoRA adapter: [`duclvQ/qwen3-asr-1.7b-vimd-qlora`](https://huggingface.co/duclvQ/qwen3-asr-1.7b-vimd-qlora)
+- Full fine-tune (+ `q8/`, `q4/` HQQ variants): [`duclvQ/qwen3-asr-1.7b-vimd-full`](https://huggingface.co/duclvQ/qwen3-asr-1.7b-vimd-full)
+
+## Data
+
+[ViMD](https://huggingface.co/datasets/nguyendv02/ViMD_Dataset) (Vietnamese multi-dialect speech), North + Central regions, clips ≤ 30 s, converted to 16 kHz int16 (`data_prep/build_vimd_dataset.py`).
+
+| Split | Clips | Hours |
+|---|---|---|
+| train | 10,346 | 54.9 |
+| valid | 1,321 | 7.0 |
+| test | 1,368 | 7.2 (939 speakers, none in train) |
+
+Transcripts are verbatim: numbers spelled out, fillers and repetitions kept. Check the dataset's license before reuse.
+
+## Results (test set, 1,368 clips)
+
+WER/CER after lowercasing and stripping punctuation, `language="Vietnamese"` forced. One seed per method.
+
+| System | WER | CER | WER North | WER Central | Train time | Peak GPU | Trainable |
+|---|---|---|---|---|---|---|---|
+| Qwen3-ASR-1.7B (zero-shot) | 11.56 | 8.12 | 8.56 | 15.45 | – | – | – |
+| LoRA (r=16, lr 1e-4) | 8.72 | 6.29 | 6.59 | 11.47 | 62 min | 13.1 GB | 17.4M (0.85%) |
+| QLoRA (NF4, r=16, lr 1e-4) | 9.45 | 6.80 | 7.23 | 12.31 | 75 min | 13.3 GB | 17.4M |
+| Full FT (lr 1e-5) | **8.59** | **6.17** | 6.60 | **11.17** | 126 min | 18.1 GB | 2.04B |
+
+Common settings: 2 epochs (1,294 steps), effective batch 16, cosine schedule, bf16, gradient checkpointing, seed 42.
+Full FT beats LoRA by only 0.13 WER (within noise) at twice the training time and 5 GB more memory, so LoRA is the better trade-off here. QLoRA is ~0.7 WER behind LoRA and was slower with no memory benefit at this model size.
+
+### Is the gain real recognition or just label format?
+
+Partly format. Analysis on the LoRA predictions (`results/eval_test/`):
+- The references spell numbers out; the base model writes digits in 74 clips. Those clips account for 0.65 of the 2.84 WER points gained.
+- Filler/repetition handling ("cái", "là", "thì", repeats) accounts for ~0.4 points.
+- Substitutions (dialect words, e.g. `chi→tri`, `chèo→trèo`, `các→cả`) fell from 5.72% to 3.93% (63% of the gain).
+- With digit clips and fillers/repeats neutralised, WER goes 8.51 → 6.69, so ~64% of the raw gain remains.
+- No speaker overlap between train and test; 4 of 1,368 test texts appear in train.
+
+The filler list was hand-picked, so treat "~64%" as roughly 55–70%.
+
+## Quantization (full fine-tuned model)
+
+Weight-only [HQQ](https://github.com/mobiusml/hqq) (no calibration) on the LLM linears; audio encoder stays bf16. 400 random test clips unless noted.
+
+| Variant | WER | CER | GPU after load |
+|---|---|---|---|
+| bf16 | 8.68 | 6.29 | 3.80 GB |
+| q8 | 8.69 | 6.29 | 2.66 GB |
+| q6 (RTN simulation, no memory saving) | 8.63 | 6.18 | 3.80 GB |
+| q4 | 10.29 | 7.21 | 2.00 GB |
+| q3 (group 64) | 100.92 | 96.84 | 1.88 GB |
+
+On a different 100-clip subset (bf16 = 9.98 WER): q4 11.64, q3 group 16 23.85, q2 group 16 104.0, q2 group 64 108.1. In short: q8/q6 are free, q4 costs ~1.6 WER, q3 and q2 collapse without calibration. These are floors for a calibration-free method, not for quantization in general; AWQ/GPTQ/QAT were not tried. HQQ inference in transformers is ~2x slower than bf16.
+
+## Serving with vLLM
+
+`./serve_vllm.sh` serves the full model (OpenAI-compatible, `127.0.0.1:8100`, 32 concurrent sequences, `max-model-len 4096`, `gpu-memory-utilization 0.5`).
+
+- Supported: `POST /v1/audio/transcriptions` (`json`/`text`, `stream=true`), `/v1/chat/completions` with `audio_url`.
+- Not supported: `verbose_json`/`srt`/`vtt` (no timestamps), OpenAI Realtime API, Batch API.
+- Measured: ~16 req/s (~300x real time) at 32–64 clients; p95 latency 2.7 s at 32, 12 s at 128 (requests queue, none failed). WER through vLLM (8.13 on 300 clips) matched offline inference (8.40).
+- **Outputs start with `language Vietnamese<asr_text>`** (the training target format); strip it client-side with `^\s*language\s+\S+?<asr_text>`, otherwise WER is inflated.
+- Untested: audio longer than 30 s (training clips were ≤ 30 s; 58 s and 142 s files returned plausible text but were not scored).
+
+## Reproduce
+
+```bash
+./setup.sh                      # venv (uv), qwen-asr[vllm]==0.0.6, models; edit env.sh for your GPU
+source env.sh
+pip install bitsandbytes hqq     # QLoRA / quantization
+python data_prep/build_vimd_dataset.py --out data/prepared
+export VIMD_DATA=$PWD/data/prepared
+./run_all.sh                    # LoRA -> QLoRA -> test eval (base, LoRA, QLoRA)
+./run_full.sh                   # full fine-tune -> test eval
+python eval_quant.py --configs bf16 q8 q6 q4 q3 q2 --max_samples 400
+./serve_vllm.sh
+```
+
+| File | Purpose |
+|---|---|
+| `train_qwen_asr.py` | LoRA / QLoRA / full training (`--mode lora\|qlora\|full`), logs every step to `train_log.jsonl` |
+| `eval_wer.py` | Test-set WER/CER for base, adapters and full models (overall + per region) |
+| `eval_quant.py`, `load_hqq_asr.py` | Quantization sweep and loader for the HQQ checkpoints |
+| `serve_vllm.sh` | vLLM server config |
+| `results/` | Per-step training logs, run summaries, all test predictions |
+
+Tested with: torch 2.9.1, transformers 4.57.6, peft 0.21.2, bitsandbytes 0.50.2, hqq 0.2.8, vllm 0.14.0, qwen-asr 0.0.6.
+
+## Notes and limitations
+
+- One seed and one hyperparameter setting per method; differences below ~0.5 WER are not reliable.
+- QLoRA numbers are for the adapter merged into the bf16 base, not the 4-bit base it trained against.
+- Full-FT checkpoints saved weights only (disk was tight), so a resumed run restarts the optimizer.
+- A label-masking bug (the processor left-pads batches) was found and fixed before the real runs; the first pilot showed an implausible loss of ~24.
+- The upstream training script is in [Qwen3-ASR](https://github.com/QwenLM/Qwen3-ASR/tree/main/finetuning); this repo adds PEFT/QLoRA, per-step logging, evaluation, quantization and serving.
