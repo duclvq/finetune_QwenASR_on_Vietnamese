@@ -1,0 +1,111 @@
+{
+  "base": {
+    "clips_with_numbers": 71,
+    "numbers": 135,
+    "hyp": {
+      "wer": 11.56,
+      "cer": 8.12,
+      "North": 8.56,
+      "Central": 15.45,
+      "wer_on_number_clips": 16.94,
+      "wer_on_other_clips": 11.21
+    },
+    "hyp_default": {
+      "wer": 11.15,
+      "cer": 7.73,
+      "North": 8.08,
+      "Central": 15.11,
+      "wer_on_number_clips": 10.18,
+      "wer_on_other_clips": 11.21
+    },
+    "hyp_best": {
+      "wer": 11.06,
+      "cer": 7.63,
+      "North": 7.98,
+      "Central": 15.04,
+      "wer_on_number_clips": 8.78,
+      "wer_on_other_clips": 11.21
+    }
+  },
+  "lora": {
+    "clips_with_numbers": 1,
+    "numbers": 1,
+    "hyp": {
+      "wer": 8.72,
+      "cer": 6.29,
+      "North": 6.59,
+      "Central": 11.47,
+      "wer_on_number_clips": 20.45,
+      "wer_on_other_clips": 8.72
+    },
+    "hyp_default": {
+      "wer": 8.72,
+      "cer": 6.29,
+      "North": 6.59,
+      "Central": 11.47,
+      "wer_on_number_clips": 20.45,
+      "wer_on_other_clips": 8.72
+    },
+    "hyp_best": {
+      "wer": 8.72,
+      "cer": 6.29,
+      "North": 6.59,
+      "Central": 11.47,
+      "wer_on_number_clips": 20.45,
+      "wer_on_other_clips": 8.72
+    }
+  },
+  "qlora": {
+    "clips_with_numbers": 3,
+    "numbers": 3,
+    "hyp": {
+      "wer": 9.45,
+      "cer": 6.8,
+      "North": 7.23,
+      "Central": 12.31,
+      "wer_on_number_clips": 11.34,
+      "wer_on_other_clips": 9.44
+    },
+    "hyp_default": {
+      "wer": 9.44,
+      "cer": 6.79,
+      "North": 7.22,
+      "Central": 12.31,
+      "wer_on_number_clips": 10.31,
+      "wer_on_other_clips": 9.44
+    },
+    "hyp_best": {
+      "wer": 9.44,
+      "cer": 6.79,
+      "North": 7.22,
+      "Central": 12.31,
+      "wer_on_number_clips": 10.31,
+      "wer_on_other_clips": 9.44
+    }
+  },
+  "full": {
+    "clips_with_numbers": 0,
+    "numbers": 0,
+    "hyp": {
+      "wer": 8.59,
+      "cer": 6.17,
+      "North": 6.6,
+      "Central": 11.17,
+      "wer_on_other_clips": 8.59
+    },
+    "hyp_default": {
+      "wer": 8.59,
+      "cer": 6.17,
+      "North": 6.6,
+      "Central": 11.17,
+      "wer_on_other_clips": 8.59
+    },
+    "hyp_best": {
+      "wer": 8.59,
+      "cer": 6.17,
+      "North": 6.6,
+      "Central": 11.17,
+      "wer_on_other_clips": 8.59
+    }
+  }
+}

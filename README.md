@@ -44,6 +44,17 @@ Partly format. Analysis on the LoRA predictions (`results/eval_test/`):
 
 The filler list was hand-picked, so treat "~64%" as roughly 55–70%.
 
+**Number normalization (`vi_numbers.py`, `rescore_numbers.py`).** Digits in a hypothesis are rewritten to spoken Vietnamese before scoring. A number has several valid readings (hai nghìn không trăm hai mươi hai / hai nghìn hai mươi hai / hai không hai hai; tư/bốn; lẻ/linh/không; nghìn/ngàn), so there is a default reading and a "best" mode that picks, per number, the reading with the fewest errors against the reference (optimistic).
+
+| System | raw WER | numbers normalized (default) | numbers normalized (best reading) |
+|---|---|---|---|
+| Zero-shot | 11.56 | 11.15 | 11.06 |
+| LoRA | 8.72 | 8.72 | 8.72 |
+| QLoRA | 9.45 | 9.44 | 9.44 |
+| Full | 8.59 | 8.59 | 8.59 |
+
+Only the zero-shot model writes digits (71 clips, 135 numbers), and all 71 clips improve. Number formatting explains 0.41-0.50 of the 2.84 WER points (14-18%); the remaining gap to LoRA is 2.34-2.43. On the 71 clips: zero-shot 16.94 raw, 8.78 with best-reading normalization, LoRA 6.35, full 6.24. Counting clips where the fine-tuned model has at least 2 fewer errors than the number-normalized zero-shot: LoRA 34, full 36 (35 and 30 clips differ only in number format). Adding the ~0.4 points from fillers and repeats (hand-picked list, may overlap), roughly 68-72% of the gain is recognition. Per-clip normalized hypotheses are in `results/eval_test/*_numnorm.jsonl`, totals in `results/number_norm_summary.json`.
+
 ## Quantization (full fine-tuned model)
 
 Weight-only [HQQ](https://github.com/mobiusml/hqq) (no calibration) on the LLM linears; audio encoder stays bf16. 400 random test clips unless noted.
@@ -121,6 +132,7 @@ python eval_quant.py --configs bf16 q8 q6 q4 q3 q2 --max_samples 400
 |---|---|
 | `train_qwen_asr.py` | LoRA / QLoRA / full training (`--mode lora\|qlora\|full`), logs every step to `train_log.jsonl` |
 | `eval_wer.py` | Test-set WER/CER for base, adapters and full models (overall + per region) |
+| `vi_numbers.py`, `rescore_numbers.py` | Vietnamese number normalization (digits to spoken readings) and re-scoring |
 | `eval_quant.py`, `load_hqq_asr.py` | Quantization sweep and loader for the HQQ checkpoints |
 | `serve_vllm.sh` | vLLM server config |
 | `realtime/` | WebSocket realtime gateway (Silero VAD) and streaming test client |
