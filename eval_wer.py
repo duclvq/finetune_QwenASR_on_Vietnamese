@@ -17,7 +17,7 @@ import torch
 from peft import PeftModel
 from qwen_asr import Qwen3ASRModel
 
-from train_qwen_asr import DATA, PreparedAudio
+from train_qwen_asr import DATA, LANG, PreparedAudio
 
 _PUNCT = re.compile(f"[{re.escape(string.punctuation)}“”‘’…–—]")
 
@@ -26,7 +26,7 @@ def normalize(text):
     return re.sub(r"\s+", " ", _PUNCT.sub(" ", text.lower())).strip()
 
 
-def transcribe(model_path, adapter, ds, bs):
+def transcribe(model_path, adapter, ds, bs, lang=LANG):
     w = Qwen3ASRModel.from_pretrained(model_path, dtype=torch.bfloat16, device_map={"": 0},
                                       max_inference_batch_size=bs, max_new_tokens=400)
     if adapter:
@@ -35,7 +35,7 @@ def transcribe(model_path, adapter, ds, bs):
     hyps, t0 = [], time.time()
     for s in range(0, len(ds), bs):
         audios = [(ds[i]["audio"], 16000) for i in range(s, min(s + bs, len(ds)))]
-        hyps += [r.text.strip() for r in w.transcribe(audio=audios, language="Vietnamese")]
+        hyps += [r.text.strip() for r in w.transcribe(audio=audios, language=lang)]
         print(f"{adapter or 'base'}: {len(hyps)}/{len(ds)} ({time.time()-t0:.0f}s)", flush=True)
     del w
     torch.cuda.empty_cache()
@@ -58,9 +58,12 @@ def main():
     ap.add_argument("--out", default="outputs/eval_test")
     ap.add_argument("--batch_size", type=int, default=8)
     ap.add_argument("--max_samples", type=int, default=None)
+    ap.add_argument("--data", default=DATA, help="prepared data dir with test/")
+    ap.add_argument("--lang", default=LANG)
+    ap.add_argument("--split", default="test")
     args = ap.parse_args()
     os.makedirs(args.out, exist_ok=True)
-    ds = PreparedAudio(os.path.join(DATA, "test"), max_samples=args.max_samples)
+    ds = PreparedAudio(os.path.join(args.data, args.split), max_samples=args.max_samples)
 
     systems = {} if args.skip_base else {"base": (args.model_path, None)}
     systems.update({r: (args.model_path, f"outputs/{r}/adapter") for r in args.runs if os.path.isdir(f"outputs/{r}/adapter")})
@@ -69,14 +72,14 @@ def main():
         systems = {k: v for k, v in systems.items() if k in args.only}
     preds, summary = {}, {}
     for name, (mpath, adapter) in systems.items():
-        preds[name], secs = transcribe(mpath, adapter, ds, args.batch_size)
+        preds[name], secs = transcribe(mpath, adapter, ds, args.batch_size, args.lang)
         with open(os.path.join(args.out, f"{name}_predictions.jsonl"), "w", encoding="utf-8") as f:
             for m, h in zip(ds.meta, preds[name]):
-                f.write(json.dumps({"filename": m["filename"], "region": m["region"], "ref": m["text"], "hyp": h,
+                f.write(json.dumps({"filename": m.get("filename", m.get("source")), "region": m.get("region"), "ref": m["text"], "hyp": h,
                                     **score([m["text"]], [h])}, ensure_ascii=False) + "\n")
         summary[name] = {"infer_seconds": round(secs, 1)}
         for region in ["All", "North", "Central", "South"]:
-            idx = [i for i, m in enumerate(ds.meta) if region == "All" or m["region"] == region]
+            idx = [i for i, m in enumerate(ds.meta) if region == "All" or m.get("region") == region]
             if idx:
                 summary[name][region] = {"clips": len(idx), **score([ds.meta[i]["text"] for i in idx],
                                                                     [preds[name][i] for i in idx])}

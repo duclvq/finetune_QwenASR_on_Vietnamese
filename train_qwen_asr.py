@@ -22,7 +22,7 @@ from transformers.trainer_utils import get_last_checkpoint
 from qwen_asr import Qwen3ASRModel
 
 DATA = os.environ.get("VIMD_DATA", os.path.expanduser("~/training/vimd-whisper/data/prepared"))  # prepared ViMD dir (see data_prep/)
-LANG_PREFIX = "language Vietnamese<asr_text>"
+LANG = "Vietnamese"  # Qwen3-ASR language tag; override with --lang (e.g. Malay)
 LORA_TARGETS = r".*thinker\.model\.layers\.\d+\.(self_attn\.(q|k|v|o)_proj|mlp\.(gate|up|down)_proj)"
 
 
@@ -44,12 +44,13 @@ class PreparedAudio(Dataset):
             self.audio = np.memmap(self.path, dtype=np.int16, mode="r")
         m = self.meta[i]
         pcm = self.audio[m["offset"]: m["offset"] + m["length"]]
-        return {"audio": pcm.astype(np.float32) / 32768.0, "text": m["text"]}
+        return {"audio": pcm.astype(np.float32) / 32768.0, "text": m["text"], "lang": m.get("lang")}
 
 
 class Collator:
-    def __init__(self, processor):
+    def __init__(self, processor, lang=LANG):
         self.processor = processor
+        self.lang = lang  # default tag; a clip's meta "lang" (e.g. English in a mixed set) overrides it
         msgs = [{"role": "system", "content": ""}, {"role": "user", "content": [{"type": "audio", "audio": None}]}]
         self.prefix = processor.apply_chat_template([msgs], add_generation_prompt=True, tokenize=False)[0]
         self.eos = processor.tokenizer.eos_token or ""
@@ -57,7 +58,8 @@ class Collator:
     def __call__(self, batch):
         audios = [b["audio"] for b in batch]
         prefixes = [self.prefix] * len(batch)
-        full = [self.prefix + LANG_PREFIX + b["text"] + self.eos for b in batch]
+        default = getattr(self, "lang", None) or self.lang_prefix[len("language "):-len("<asr_text>")]  # old pickles
+        full = [self.prefix + f"language {b.get('lang') or default}<asr_text>" + b["text"] + self.eos for b in batch]
         full_in = self.processor(text=full, audio=audios, return_tensors="pt", padding=True, truncation=False)
         pre_in = self.processor(text=prefixes, audio=audios, return_tensors="pt", padding=True, truncation=False)
         labels = full_in["input_ids"].clone()
@@ -126,6 +128,8 @@ def main():
     ap.add_argument("--save_steps", type=int, default=100)
     ap.add_argument("--max_eval_samples", type=int, default=200)
     ap.add_argument("--workers", type=int, default=4)
+    ap.add_argument("--data", default=DATA, help="prepared data dir with train/ and valid/")
+    ap.add_argument("--lang", default=LANG)
     args = ap.parse_args()
     os.makedirs(args.output_dir, exist_ok=True)
     json.dump(vars(args), open(os.path.join(args.output_dir, "args.json"), "w"), indent=2)
@@ -164,8 +168,8 @@ def main():
                         sum(p.numel() for p in model.parameters()))
     print(f"[{args.mode}] trainable {trainable/1e6:.2f}M / {total/1e6:.1f}M ({100*trainable/total:.2f}%)", flush=True)
 
-    train_ds = PreparedAudio(os.path.join(DATA, "train"), max_samples=args.max_train_samples)
-    eval_ds = PreparedAudio(os.path.join(DATA, "valid"), max_samples=args.max_eval_samples)
+    train_ds = PreparedAudio(os.path.join(args.data, "train"), max_samples=args.max_train_samples)
+    eval_ds = PreparedAudio(os.path.join(args.data, "valid"), max_samples=args.max_eval_samples)
     print(f"train {len(train_ds)} clips, eval {len(eval_ds)} clips", flush=True)
 
     targs = TrainingArguments(
@@ -179,7 +183,7 @@ def main():
         save_only_model=args.mode == "full",  # disk is tight: no optimizer state in full-FT checkpoints
         dataloader_num_workers=args.workers, remove_unused_columns=False, report_to="none", seed=42)
     trainer = CastFloatInputsTrainer(model=model, args=targs, train_dataset=train_ds, eval_dataset=eval_ds,
-                                     data_collator=Collator(processor),
+                                     data_collator=Collator(processor, args.lang),
                                      callbacks=[StepLogger(os.path.join(args.output_dir, "train_log.jsonl"))])
     ckpt = get_last_checkpoint(args.output_dir)
     if ckpt:

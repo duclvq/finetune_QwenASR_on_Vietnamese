@@ -1,0 +1,18 @@
+{
+  "base": {
+    "infer_seconds": 633.9,
+    "All": {
+      "clips": 1994,
+      "wer": 53.79,
+      "cer": 30.71
+    }
+  },
+  "lora-1.7b-malay50h": {
+    "infer_seconds": 626.5,
+    "All": {
+      "clips": 1994,
+      "wer": 37.96,
+      "cer": 21.14
+    }
+  }
+}

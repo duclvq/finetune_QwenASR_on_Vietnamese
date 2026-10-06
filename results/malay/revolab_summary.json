@@ -1,0 +1,138 @@
+{
+  "base": {
+    "infer_seconds": 361.2,
+    "All": {
+      "clips": 820,
+      "wer": 15.01,
+      "cer": 6.99
+    },
+    "animation": {
+      "clips": 50,
+      "wer": 17.35,
+      "cer": 6.22
+    },
+    "commonvoice": {
+      "clips": 141,
+      "wer": 8.4,
+      "cer": 3.53
+    },
+    "drama": {
+      "clips": 52,
+      "wer": 26.91,
+      "cer": 12.0
+    },
+    "fleurs": {
+      "clips": 153,
+      "wer": 7.34,
+      "cer": 2.5
+    },
+    "news": {
+      "clips": 52,
+      "wer": 23.11,
+      "cer": 15.31
+    },
+    "parliament": {
+      "clips": 52,
+      "wer": 13.93,
+      "cer": 5.42
+    },
+    "podcast": {
+      "clips": 52,
+      "wer": 16.21,
+      "cer": 8.15
+    },
+    "read-speech": {
+      "clips": 51,
+      "wer": 7.98,
+      "cer": 3.01
+    },
+    "short-inputs": {
+      "clips": 52,
+      "wer": 31.67,
+      "cer": 23.5
+    },
+    "singing": {
+      "clips": 51,
+      "wer": 18.72,
+      "cer": 7.1
+    },
+    "street interview": {
+      "clips": 48,
+      "wer": 37.35,
+      "cer": 20.68
+    },
+    "telephony": {
+      "clips": 66,
+      "wer": 14.14,
+      "cer": 9.95
+    }
+  },
+  "lora-1.7b-malay50h": {
+    "infer_seconds": 351.3,
+    "All": {
+      "clips": 820,
+      "wer": 16.14,
+      "cer": 8.01
+    },
+    "animation": {
+      "clips": 50,
+      "wer": 20.81,
+      "cer": 11.29
+    },
+    "commonvoice": {
+      "clips": 141,
+      "wer": 7.36,
+      "cer": 3.13
+    },
+    "drama": {
+      "clips": 52,
+      "wer": 26.8,
+      "cer": 14.67
+    },
+    "fleurs": {
+      "clips": 153,
+      "wer": 7.38,
+      "cer": 2.71
+    },
+    "news": {
+      "clips": 52,
+      "wer": 12.97,
+      "cer": 5.52
+    },
+    "parliament": {
+      "clips": 52,
+      "wer": 15.38,
+      "cer": 6.43
+    },
+    "podcast": {
+      "clips": 52,
+      "wer": 22.76,
+      "cer": 12.19
+    },
+    "read-speech": {
+      "clips": 51,
+      "wer": 3.68,
+      "cer": 1.76
+    },
+    "short-inputs": {
+      "clips": 52,
+      "wer": 17.65,
+      "cer": 11.36
+    },
+    "singing": {
+      "clips": 51,
+      "wer": 36.76,
+      "cer": 23.46
+    },
+    "street interview": {
+      "clips": 48,
+      "wer": 45.38,
+      "cer": 32.02
+    },
+    "telephony": {
+      "clips": 66,
+      "wer": 33.47,
+      "cer": 21.16
+    }
+  }
+}
