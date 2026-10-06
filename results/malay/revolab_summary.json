@@ -134,5 +134,141 @@
       "wer": 33.47,
       "cer": 21.16
     }
+  },
+  "lora-1.7b-malay50h-clean": {
+    "infer_seconds": null,
+    "All": {
+      "clips": 820,
+      "wer": 15.76,
+      "cer": 7.53
+    },
+    "animation": {
+      "clips": 50,
+      "wer": 18.7,
+      "cer": 9.22
+    },
+    "commonvoice": {
+      "clips": 141,
+      "wer": 7.45,
+      "cer": 3.25
+    },
+    "drama": {
+      "clips": 52,
+      "wer": 26.14,
+      "cer": 14.59
+    },
+    "fleurs": {
+      "clips": 153,
+      "wer": 7.47,
+      "cer": 2.77
+    },
+    "news": {
+      "clips": 52,
+      "wer": 13.39,
+      "cer": 5.51
+    },
+    "parliament": {
+      "clips": 52,
+      "wer": 15.48,
+      "cer": 6.64
+    },
+    "podcast": {
+      "clips": 52,
+      "wer": 21.73,
+      "cer": 11.54
+    },
+    "read-speech": {
+      "clips": 51,
+      "wer": 4.6,
+      "cer": 1.5
+    },
+    "short-inputs": {
+      "clips": 52,
+      "wer": 18.49,
+      "cer": 13.77
+    },
+    "singing": {
+      "clips": 51,
+      "wer": 29.45,
+      "cer": 16.06
+    },
+    "street interview": {
+      "clips": 48,
+      "wer": 42.27,
+      "cer": 27.92
+    },
+    "telephony": {
+      "clips": 66,
+      "wer": 38.37,
+      "cer": 23.77
+    }
+  },
+  "lora-1.7b-malay50h-mix": {
+    "infer_seconds": 271.0,
+    "All": {
+      "clips": 820,
+      "wer": 13.38,
+      "cer": 6.29
+    },
+    "animation": {
+      "clips": 50,
+      "wer": 16.89,
+      "cer": 7.72
+    },
+    "commonvoice": {
+      "clips": 141,
+      "wer": 7.08,
+      "cer": 3.27
+    },
+    "drama": {
+      "clips": 52,
+      "wer": 21.26,
+      "cer": 10.98
+    },
+    "fleurs": {
+      "clips": 153,
+      "wer": 6.93,
+      "cer": 2.55
+    },
+    "news": {
+      "clips": 52,
+      "wer": 11.13,
+      "cer": 4.46
+    },
+    "parliament": {
+      "clips": 52,
+      "wer": 14.43,
+      "cer": 6.22
+    },
+    "podcast": {
+      "clips": 52,
+      "wer": 18.78,
+      "cer": 10.03
+    },
+    "read-speech": {
+      "clips": 51,
+      "wer": 3.68,
+      "cer": 1.5
+    },
+    "short-inputs": {
+      "clips": 52,
+      "wer": 13.45,
+      "cer": 8.78
+    },
+    "singing": {
+      "clips": 51,
+      "wer": 23.06,
+      "cer": 10.8
+    },
+    "street interview": {
+      "clips": 48,
+      "wer": 37.95,
+      "cer": 23.94
+    },
+    "telephony": {
+      "clips": 66,
+      "wer": 19.11,
+      "cer": 13.26
+    }
   }
 }

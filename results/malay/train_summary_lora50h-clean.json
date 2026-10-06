@@ -1,0 +1,22 @@
+{
+  "mode": "lora",
+  "trainable_params": 17432576,
+  "total_params": 2055485056,
+  "train_wall_s": 5987.0,
+  "peak_gpu_gb": 7.84,
+  "final_eval": {
+    "eval_loss": 0.7848054766654968,
+    "eval_runtime": 50.5834,
+    "eval_samples_per_second": 3.954,
+    "eval_steps_per_second": 0.988,
+    "epoch": 2.0
+  },
+  "state": {
+    "eval_loss": 0.7848054766654968,
+    "eval_runtime": 50.5834,
+    "eval_samples_per_second": 3.954,
+    "eval_steps_per_second": 0.988,
+    "epoch": 2.0,
+    "step": 3780
+  }
+}

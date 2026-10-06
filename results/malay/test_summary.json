@@ -14,5 +14,21 @@
       "wer": 37.96,
       "cer": 21.14
     }
+  },
+  "lora-1.7b-malay50h-clean": {
+    "infer_seconds": 652.9,
+    "All": {
+      "clips": 1994,
+      "wer": 38.3,
+      "cer": 21.11
+    }
+  },
+  "lora-1.7b-malay50h-mix": {
+    "infer_seconds": 669.6,
+    "All": {
+      "clips": 1994,
+      "wer": 38.43,
+      "cer": 21.23
+    }
   }
 }

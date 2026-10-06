@@ -21,6 +21,11 @@ from transformers.trainer_utils import get_last_checkpoint
 
 from qwen_asr import Qwen3ASRModel
 
+if os.environ.get("CPU_AFFINITY"):  # e.g. "0-11": keep the (single-thread-bound) main loop off hybrid CPUs' E-cores
+    import psutil
+    lo, _, hi = os.environ["CPU_AFFINITY"].partition("-")
+    psutil.Process().cpu_affinity(list(range(int(lo), int(hi or lo) + 1)))
+
 DATA = os.environ.get("VIMD_DATA", os.path.expanduser("~/training/vimd-whisper/data/prepared"))  # prepared ViMD dir (see data_prep/)
 LANG = "Vietnamese"  # Qwen3-ASR language tag; override with --lang (e.g. Malay)
 LORA_TARGETS = r".*thinker\.model\.layers\.\d+\.(self_attn\.(q|k|v|o)_proj|mlp\.(gate|up|down)_proj)"
@@ -134,6 +139,10 @@ def main():
     os.makedirs(args.output_dir, exist_ok=True)
     json.dump(vars(args), open(os.path.join(args.output_dir, "args.json"), "w"), indent=2)
 
+    # Windows' CUDA sysmem fallback lets the caching allocator grow past VRAM into (slow) shared system RAM
+    # instead of freeing cached blocks; a hard per-process cap makes it free the cache first.
+    if os.environ.get("CUDA_MEM_FRACTION"):
+        torch.cuda.set_per_process_memory_fraction(float(os.environ["CUDA_MEM_FRACTION"]), 0)
     kw = dict(dtype=torch.bfloat16, device_map={"": 0})
     if args.mode == "qlora":
         kw["quantization_config"] = BitsAndBytesConfig(
@@ -187,6 +196,12 @@ def main():
                                      callbacks=[StepLogger(os.path.join(args.output_dir, "train_log.jsonl"))])
     ckpt = get_last_checkpoint(args.output_dir)
     if ckpt:
+        # Trainer silently restores the checkpoint's train_batch_size on resume, so a changed --batch_size
+        # would really run with the old batch and a smaller grad_acc product (and a stretched LR schedule).
+        saved_bs = json.load(open(os.path.join(ckpt, "trainer_state.json"))).get("train_batch_size")
+        if saved_bs and saved_bs != args.batch_size:
+            raise SystemExit(f"[resume] {ckpt} was trained with batch_size {saved_bs}, not {args.batch_size}; "
+                             f"resume with --batch_size {saved_bs} or start a new output_dir")
         print(f"[resume] {ckpt}", flush=True)
     t0 = time.time()
     trainer.train(resume_from_checkpoint=ckpt)
