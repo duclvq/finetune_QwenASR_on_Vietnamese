@@ -270,5 +270,73 @@
       "wer": 19.11,
       "cer": 13.26
     }
+  },
+  "lora-1.7b-malay50h-mix-cont": {
+    "infer_seconds": 270.3,
+    "All": {
+      "clips": 820,
+      "wer": 13.89,
+      "cer": 6.65
+    },
+    "animation": {
+      "clips": 50,
+      "wer": 18.1,
+      "cer": 7.94
+    },
+    "commonvoice": {
+      "clips": 141,
+      "wer": 7.42,
+      "cer": 3.51
+    },
+    "drama": {
+      "clips": 52,
+      "wer": 22.04,
+      "cer": 12.07
+    },
+    "fleurs": {
+      "clips": 153,
+      "wer": 6.73,
+      "cer": 2.45
+    },
+    "news": {
+      "clips": 52,
+      "wer": 12.06,
+      "cer": 5.0
+    },
+    "parliament": {
+      "clips": 52,
+      "wer": 14.6,
+      "cer": 6.8
+    },
+    "podcast": {
+      "clips": 52,
+      "wer": 21.89,
+      "cer": 11.76
+    },
+    "read-speech": {
+      "clips": 51,
+      "wer": 3.99,
+      "cer": 1.5
+    },
+    "short-inputs": {
+      "clips": 52,
+      "wer": 14.29,
+      "cer": 9.47
+    },
+    "singing": {
+      "clips": 51,
+      "wer": 22.15,
+      "cer": 10.95
+    },
+    "street interview": {
+      "clips": 48,
+      "wer": 38.45,
+      "cer": 24.41
+    },
+    "telephony": {
+      "clips": 66,
+      "wer": 18.09,
+      "cer": 12.62
+    }
   }
 }

@@ -67,6 +67,20 @@ These are TTS clips from the same source and voices as lora-mix's training data,
 in-distribution and optimistic; it is not evidence about real code-switched speech. There is no human-labelled real
 code-switch test set yet (see next steps).
 
+### Continued training (lora-mix-cont)
+
+Eval loss had looked flat at the end of lora-mix only because the cosine LR had reached 0, so lora-mix was trained
+2 more epochs from its final adapter (`--init_adapter`, fresh warmup + cosine, lr 5e-5, 4,304 steps).
+Eval loss bottomed at 0.783 (step 1,800, LR near its peak) and then rose to ~0.80 while train loss kept falling
+(0.52 -> 0.44 per sample): overfitting on epochs 3-4 of the same data. It is worse everywhere:
+
+| System | Test WER | Test clean clips | Revolab All | Synthetic CS |
+|---|---|---|---|---|
+| lora-mix | **37.35** | **34.63** | **13.38** | **7.42** |
+| lora-mix-cont | 38.42 | 35.34 | 13.89 | 7.48 |
+
+lora-mix (2 epochs) stays the best system; more epochs on the same 63h do not help, new data is needed.
+
 ## Analysis
 
 1. **In-domain gain is real and stable** (~37 WER vs 52, ~34.6 vs 46.8 on clean clips) and does not depend on the
@@ -99,7 +113,8 @@ code-switch test set yet (see next steps).
    quality can be measured at all; then use real CS training data (e.g. the `D:/cs_mining` podcast pipeline, once its
    labels are checked) instead of TTS Synth-Manglish.
 2. Telephony (8kHz-like) and singing still trail base: add narrowband / music augmentation, or more such data.
-3. Try a larger English/CS share or a lower LoRA lr to trade a little in-domain WER for robustness.
+3. Add data rather than epochs (more hours from the 500h build, real CS); a larger English/CS share or a lower LoRA lr
+   may trade a little in-domain WER for robustness.
 
 ## Reproduce
 

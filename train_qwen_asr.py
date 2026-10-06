@@ -14,7 +14,7 @@ import time
 
 import numpy as np
 import torch
-from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
+from peft import LoraConfig, PeftModel, get_peft_model, prepare_model_for_kbit_training
 from torch.utils.data import Dataset
 from transformers import BitsAndBytesConfig, GenerationConfig, Trainer, TrainerCallback, TrainingArguments
 from transformers.trainer_utils import get_last_checkpoint
@@ -132,6 +132,7 @@ def main():
     ap.add_argument("--eval_steps", type=int, default=100)
     ap.add_argument("--save_steps", type=int, default=100)
     ap.add_argument("--max_eval_samples", type=int, default=200)
+    ap.add_argument("--init_adapter", default=None, help="start LoRA from this saved adapter dir instead of fresh")
     ap.add_argument("--workers", type=int, default=4)
     ap.add_argument("--data", default=DATA, help="prepared data dir with train/ and valid/")
     ap.add_argument("--lang", default=LANG)
@@ -169,7 +170,9 @@ def main():
     if args.mode == "qlora":  # also casts non-quantized params (norms etc.) to fp32 for stability
         model = prepare_model_for_kbit_training(model, use_gradient_checkpointing=False)
     model.gradient_checkpointing_enable(gradient_checkpointing_kwargs={"use_reentrant": False})
-    if args.mode != "full":
+    if args.mode != "full" and args.init_adapter:  # continue training a finished adapter with a fresh LR schedule
+        model = PeftModel.from_pretrained(model, args.init_adapter, is_trainable=True)
+    elif args.mode != "full":
         model = get_peft_model(model, LoraConfig(r=args.r, lora_alpha=args.alpha, lora_dropout=args.dropout,
                                                  target_modules=LORA_TARGETS, bias="none"))
     # mode == "full": every parameter (audio tower + LLM) trains, bf16 weights like the official script

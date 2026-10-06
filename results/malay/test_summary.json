@@ -30,5 +30,13 @@
       "wer": 38.43,
       "cer": 21.23
     }
+  },
+  "lora-1.7b-malay50h-mix-cont": {
+    "infer_seconds": 614.3,
+    "All": {
+      "clips": 1994,
+      "wer": 39.49,
+      "cer": 22.1
+    }
   }
 }
