@@ -14,6 +14,9 @@ English forgetting). Cleaning labels helps a little; mixing in code-switched and
 | lora-clean | same, minus truncated-label clips (VAD), topped up to 50h | 50.0h / 30,225 | 3,778 |
 | lora-mix | lora-clean + Synth-Manglish + cs_pilot (code-switch) + 5h FLEURS en_us (`language English`) | 63.0h / 34,425 | 4,304 |
 
+cs_pilot (200 train clips) comes from one podcast episode with machine-generated labels (Qwen3-ASR + Whisper merged
+by an LLM, no human check), so it is used for training only and **no result is reported on it**.
+
 All LoRA runs: r=16, alpha=32 on the LLM's attention + MLP (17.4M trainable, 0.85%), 2 epochs, lr 1e-4 cosine,
 effective batch 16 (lora: 2 x 8; clean / mix: 4 x 4), RTX 5060 Ti 16GB on Windows.
 Train wall time: lora 4.1h, lora-clean 1.7h, lora-mix 2.3h (the later runs pin the trainer to P-cores, see below).
@@ -51,17 +54,18 @@ Benchmark scoring (MalayTextNormalizer + numbers, best of `text`/`normalized_tex
 | singing | 51 | **18.72** | 36.76 | 29.45 | 23.06 |
 | telephony | 66 | **14.14** | 33.47 | 38.37 | 19.11 |
 
-### Code-switch test (`cs_test`, 221 held-out clips)
+### Synthetic code-switch test (`cs_test`, 203 held-out Synth-Manglish clips)
 
-| System | All | Synth-Manglish (203, TTS) | cs_pilot (18, real podcast) |
+| System | WER | CER | Del |
 |---|---|---|---|
-| base | 24.61 | 27.20 | **10.32** |
-| lora | 26.54 | 24.24 | 39.21 |
-| lora-clean | 25.59 | 23.76 | 35.65 |
-| lora-mix | **8.31** | **7.42** | 13.23 |
+| base | 27.20 | 10.09 | 3.69 |
+| lora | 24.24 | 9.69 | 4.08 |
+| lora-clean | 23.76 | 9.45 | 3.52 |
+| lora-mix | **7.42** | **2.94** | 0.60 |
 
-The Synth-Manglish part is the same TTS source (and voices) as lora-mix's training data, so 7.4 is optimistic;
-the 18 real podcast clips are the honest signal: lora-mix recovers from 39 to 13 but is still behind base (10.3).
+These are TTS clips from the same source and voices as lora-mix's training data, so lora-mix's number is
+in-distribution and optimistic; it is not evidence about real code-switched speech. There is no human-labelled real
+code-switch test set yet (see next steps).
 
 ## Analysis
 
@@ -71,12 +75,12 @@ the 18 real podcast clips are the honest signal: lora-mix recovers from 39 to 13
 2. **Truncated labels -> deletions.** The corpus is semi-supervised (Google STT); Silero VAD finds ~6% of clips whose
    transcript is far too short for the speech (< 6 chars per speech-second vs a median of 14.2) and ~1% with no
    speech. Training on them taught the model to drop words. Removing them (lora-clean) lowers deletions
-   (test 6.6 -> 5.6, cs_test 7.2 -> 5.8, singing 36.8 -> 29.5, street interview 45.4 -> 42.3), but the overall gain is
+   (test 6.6 -> 5.6, singing 36.8 -> 29.5, street interview 45.4 -> 42.3), but the overall gain is
    small because the test labels are equally noisy.
 3. **English / code-switch forgetting was the main out-of-domain problem.** Malay-only LoRAs map English speech onto
-   Malay words ("that's all" -> "datang"), wrecking telephony (14 -> 33-38) and real code-switched speech (10 -> 36-39).
-   Adding 7.3h code-switch + 5h English (lora-mix) fixes most of it: telephony 38.4 -> 19.1, real CS 35.7 -> 13.2,
-   short-inputs 18.5 -> 13.5, and the Revolab total drops below base.
+   Malay words ("that's all" -> "datang"), wrecking telephony (14 -> 33-38). Adding 7.3h code-switch + 5h English
+   (lora-mix) fixes most of it on Revolab: telephony 38.4 -> 19.1, short-inputs 18.5 -> 13.5, drama 26.1 -> 21.3,
+   and the Revolab total drops below base.
 4. Numbers and punctuation are not a factor: normalization moves WER by < 2 points for every system.
 
 ## Training-infrastructure findings (Windows, RTX 5060 Ti 16GB, i5-14400F)
@@ -91,8 +95,9 @@ the 18 real podcast clips are the honest signal: lora-mix recovers from 39 to 13
 
 ## Next steps
 
-1. Real code-switched speech is the lever: the `D:/cs_mining` pipeline (target 50h of podcast CS) should replace the
-   TTS Synth-Manglish data; the real-CS gap to base (13.2 vs 10.3) is the main thing left.
+1. Build a human-verified real code-switch test set (100-200 clips from podcast episodes not used in training) so CS
+   quality can be measured at all; then use real CS training data (e.g. the `D:/cs_mining` podcast pipeline, once its
+   labels are checked) instead of TTS Synth-Manglish.
 2. Telephony (8kHz-like) and singing still trail base: add narrowband / music augmentation, or more such data.
 3. Try a larger English/CS share or a lower LoRA lr to trade a little in-domain WER for robustness.
 
